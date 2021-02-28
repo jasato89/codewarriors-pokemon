@@ -1,3 +1,7 @@
 <p>{{currentUrl}}</p>
+
 <button (click)="forward()">Next</button>
 <button (click)="backwards()">Previous</button>
+<div *ngFor="let pokemon of pokemons; index as i">
+  <p>{{pokemon.name}}</p>
+</div>
