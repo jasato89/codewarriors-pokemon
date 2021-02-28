@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokedexComponent
+    PokedexComponent,
+    PokedexCardComponent
   ],
   imports: [
     BrowserModule,

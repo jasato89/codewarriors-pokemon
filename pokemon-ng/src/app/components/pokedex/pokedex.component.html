@@ -3,5 +3,6 @@
 <button (click)="forward()">Next</button>
 <button (click)="backwards()">Previous</button>
 <div *ngFor="let pokemon of pokemons; index as i">
-  <p>{{pokemon.name}}</p>
+  <h2 class="bg-pokemonBlue text-pokemonYellow" (click)="showStats(i)">{{pokemon.name}}</h2>
+  <app-pokedex-card *ngIf="isActive[i]" [pokemon]="pokemon" [i]="i"></app-pokedex-card>
 </div>

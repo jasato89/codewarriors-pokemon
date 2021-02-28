@@ -23,6 +23,7 @@ export class PokedexComponent implements OnInit {
   pokemonList: PokemonList = {} as PokemonList;
   pokemons: Pokemon[] = [] as Pokemon[];
   testPoke: Pokemon = {} as Pokemon;
+  isActive: boolean[] = [];
 
   getPokemonList(url: string): PokemonList {
     this.pokemonList = {} as PokemonList;
@@ -39,16 +40,25 @@ export class PokedexComponent implements OnInit {
   forward(): void {
     this.currentUrl = this.nextUrl;
     this.getPokemonList(this.currentUrl);
-    this.getPokemons(this.currentUrl);
 
   }
 
   backwards(): void {
     this.currentUrl = this.previousUrl;
     this.getPokemonList(this.currentUrl);
-    this.getPokemons(this.currentUrl);
 
 
+  }
+
+  showStats(i: number): void {
+    if (this.isActive[i] === true) {
+      this.isActive[i] = false;
+    } else {
+      for (let num in this.isActive) {
+        this.isActive[num] = false;
+      }
+      this.isActive[i] = true;
+    }
   }
 
 
@@ -65,10 +75,9 @@ export class PokedexComponent implements OnInit {
 
         }
 
-
         this.pokemons.push(
           new Pokemon(result.id,
-            result.name,
+            result.name[0].toUpperCase() + result.name.substr(1),
             [
               result.stats[0].base_stat,
               result.stats[1].base_stat,
@@ -83,6 +92,7 @@ export class PokedexComponent implements OnInit {
               result.sprites.front_shiny,
               result.sprites.front_shiny_female,
             ]));
+        this.isActive.push(false);
       })
 
 

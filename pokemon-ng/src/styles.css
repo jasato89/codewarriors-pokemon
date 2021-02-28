@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --pokemon-blue: #3b4cca;
+  --pokemon-yellow: #ffde00;
+  --pokemon-gold:  #b3a125;
+  --pokemon-red: #ff0000;
+  --pokemon-dark-red: #cc0000;
+}
