@@ -1,6 +1,8 @@
 export class Trainer {
     
     constructor(
+
+        private _id:number,
         private _name: string,
         private _age: number,
         private _hobby: string,
@@ -8,6 +10,10 @@ export class Trainer {
         private _isCreated: boolean
 
       ){}
+
+      get id():number{
+        return this._id;
+    }
     
       get name(): string {
         return this._name;
@@ -25,6 +31,10 @@ export class Trainer {
       get isCreated():boolean{
         return this._isCreated;
     }
+
+    set id(id:number){
+      this._id = id;
+  }
     
       set name(name: string) {
         this._name = name;

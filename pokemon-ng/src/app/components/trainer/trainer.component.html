@@ -13,6 +13,6 @@
 <div>
   <div>
     <h3>Trainers</h3>
-  <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerIndex]="i" (deleteTrainerEvent)="delete($event)"></app-trainer-card>
+  <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id" (deleteTrainerEvent)="delete($event)"></app-trainer-card>
   </div>
 

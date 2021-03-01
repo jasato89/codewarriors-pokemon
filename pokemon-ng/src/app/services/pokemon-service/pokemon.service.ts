@@ -21,4 +21,10 @@ export class PokemonService {
     return this.http.get<Pokeinterface>(url);
   }
 
+  deleteTrainer(trainerId:number):void{
+    this.http.delete('http://localhost:8088/trainers/'+ trainerId).subscribe(data=>
+    console.log('Trainer deleted'));
+  } 
 }
+
+

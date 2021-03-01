@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Trainer } from 'src/app/classes/trainer/trainer';
 
 @Component({
@@ -9,7 +9,7 @@ import { Trainer } from 'src/app/classes/trainer/trainer';
 export class TrainerCardComponent implements OnInit {
 
   @Input() trainer!: Trainer;
-  @Input("trainerIndex") index!: number;
+  @Input() trainerId!: number;
 
   @Output() deleteTrainerEvent = new EventEmitter();
   url: string =''
@@ -20,8 +20,8 @@ export class TrainerCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  delete(index: number): void {
-    this.deleteTrainerEvent.emit(index);
+  delete(trainerId: number): void {
+    this.deleteTrainerEvent.emit(this.trainerId);
   }
 
   readUrl(event:any) {

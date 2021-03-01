@@ -1,3 +1,4 @@
+import { PokemonService } from './../../services/pokemon-service/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/classes/trainer/trainer';
 
@@ -10,6 +11,7 @@ import { Trainer } from 'src/app/classes/trainer/trainer';
 export class TrainerComponent implements OnInit {
 
   trainerList: Trainer[] = [];
+  trainerId: number= -1;
   trainerName: string = '';
   trainerAge: number = 0;
   trainerHobby: string = '';
@@ -21,11 +23,9 @@ export class TrainerComponent implements OnInit {
   placeHolderText2: string = 'Please, introduce the hobby';
 
   constructor(
-    private trainerService:TrainerService
+    private trainerService:PokemonService
   ) { }
 
-  ngOnInit(): void {
-  }
 
   getPlaceHolder(): string {
     return this.placeHolderText;
@@ -37,15 +37,18 @@ export class TrainerComponent implements OnInit {
 
   createNewTrainer(photo?: string): void {
 
-    const trainer: Trainer = new Trainer(this.trainerName, this.trainerAge, this.trainerHobby, photo, true);
+    const trainer: Trainer = new Trainer(this.trainerId, this.trainerName, this.trainerAge, this.trainerHobby, photo, true);
     this.trainerList.push(trainer);
     }
  
-  delete(index: number): void {
-  
-      this.trainerList.splice(index, 1);
-      this.trainerService.deleteTrainer(this.trainerName);
+  delete(trainerId: number): void {
+    
+      this.trainerList.splice(trainerId-1, 1);
+      this.trainerService.deleteTrainer(trainerId);
    
+    }
+
+    ngOnInit(): void {
     }
 
 }
