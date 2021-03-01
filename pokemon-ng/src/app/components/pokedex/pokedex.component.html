@@ -2,11 +2,11 @@
   <app-pokesearch class="m-2"></app-pokesearch>
   <div class="grid sm:grid-cols-4 xl:grid-cols-6 grid-cols-2">
     <div class="m-2 h-full" *ngFor="let pokemon of pokemons; index as i">
-      <button class="flex flex-col justify-center text-pokemonYellow w-full bg-pokemonNavyBlue hover:bg-pokemonYellow hover:text-pokemonRed rounded"
+      <button class="flex flex-col justify-center items-center text-pokemonYellow w-full bg-pokemonNavyBlue hover:bg-pokemonYellow hover:text-pokemonRed rounded"
               (click)="showStats(i)">
-        <img src="{{pokemon.sprites[0]}}">
+        <img class="h-full" src="{{pokemon.sprites[0]}}">
         <p class="p-1">{{pokemon.name}}</p>
-        <app-pokedex-card *ngIf="isActive[i]" [pokemon]="pokemon" [i]="i"></app-pokedex-card>
+        <app-pokedex-card class="w-full" *ngIf="isActive[i]" [pokemon]="pokemon" [i]="i"></app-pokedex-card>
       </button>
     </div>
   </div>
