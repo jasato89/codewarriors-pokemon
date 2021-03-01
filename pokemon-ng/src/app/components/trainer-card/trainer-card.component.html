@@ -1,0 +1,14 @@
+
+ <div *ngIf="trainer.isCreated === true">
+
+    <div (mouseover)="hover=true" (mouseleave)="hover=false">
+      <div id="box1" class="boxed" [ngStyle]="{backgroundColor: hover==true  ? 'aquamarine' : 'white'}">
+      <div class="trans"> 
+      <input  type='file' (change)="readUrl($event)">
+      </div>
+      <img [src]="url" alt="" width="100" height="100"> 
+  
+      <p>{{ index+1 }}.- Name: {{ trainer.name }} Age: {{ trainer.age }} Hobby: {{ trainer.hobby }}</p>
+      <button (click)="delete(index)">Delete Trainer</button>
+    </div>
+  </div>

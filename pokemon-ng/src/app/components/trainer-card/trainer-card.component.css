@@ -1,0 +1,23 @@
+#box1{
+   
+    margin-right: 500px;
+}
+
+.boxed 
+{
+    height: 350px; /*Specify Height*/
+    width:  350px; /*Specify Width*/
+    /*background-color: green; /*Add a background color to the box*/
+    text-align:center; /*Align the text to the center*/
+    color: black;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.trans{
+    width: 355px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50pt;
+  }

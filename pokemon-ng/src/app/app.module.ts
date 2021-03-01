@@ -7,13 +7,18 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
+import { TrainerComponent } from './components/trainer/trainer.component';
+import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
-    PokedexCardComponent
+    PokedexCardComponent,
+    TrainerComponent,
+    TrainerCardComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
