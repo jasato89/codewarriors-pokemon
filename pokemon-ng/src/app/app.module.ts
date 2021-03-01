@@ -9,13 +9,15 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
 import { PokesearchComponent } from './components/pokesearch/pokesearch.component';
 import {AutocompleteLibModule} from "angular-ng-autocomplete";
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
     PokedexCardComponent,
-    PokesearchComponent
+    PokesearchComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

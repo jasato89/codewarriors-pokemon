@@ -23,15 +23,18 @@ export class PokesearchComponent implements OnInit {
   pokemonList: PokemonList = {} as PokemonList;
 
 
-  keyword = 'name';
-  data: Data[] = [];
+  pokemonKeyword = 'name';
+  pokemonData: Data[] = [];
+
+  userKeyword = 'name';
+  userData: Data[] = [new Data(0, "Pedro"), new Data(1, "Jose")];
 
   getPokemonList():void {
-    this.data = [];
+    this.pokemonData = [];
     this.pokemonListService.getPokemonList("https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0").subscribe(result =>{
       result.results.forEach(((value, index) => {
 
-        this.data.push(new Data(index, value.name[0].toUpperCase() + value.name.substr(1)));
+        this.pokemonData.push(new Data(index, value.name[0].toUpperCase() + value.name.substr(1)));
 
       }));
 
