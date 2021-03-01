@@ -1,0 +1,48 @@
+<div class="flex flex-wrap justify-center">
+  <div class="w-5/12 p-2">
+    <p>Trainer:</p>
+    <ng-autocomplete
+      [data]="userData"
+      [searchKeyword]="userKeyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
+
+
+  <div class="w-5/12 p-2">
+    <p>Pokemon:</p>
+    <ng-autocomplete
+      [data]="pokemonData"
+      [searchKeyword]="pokemonKeyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
+
+  <div class="w-3/12 flex justify-center align-middle p-2 bg-pokemonYellow rounded">
+    <button class="bg-pokemonYellow rounded">Add pokemon</button>
+  </div>
+</div>

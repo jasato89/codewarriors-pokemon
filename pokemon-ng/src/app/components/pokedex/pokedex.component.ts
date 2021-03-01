@@ -17,12 +17,11 @@ export class PokedexComponent implements OnInit {
     this.getPokemonList(this.currentUrl);
   }
 
-  nextUrl: string = "https://pokeapi.co/api/v2/pokemon";
-  previousUrl: string = "https://pokeapi.co/api/v2/pokemon";
-  currentUrl: string = "https://pokeapi.co/api/v2/pokemon";
+  nextUrl: string = "";
+  previousUrl: string = "";
+  currentUrl: string = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0";
   pokemonList: PokemonList = {} as PokemonList;
   pokemons: Pokemon[] = [] as Pokemon[];
-  testPoke: Pokemon = {} as Pokemon;
   isActive: boolean[] = [];
 
   getPokemonList(url: string): PokemonList {
@@ -66,7 +65,6 @@ export class PokedexComponent implements OnInit {
     this.pokemons = [];
     this.pokemonList.results.forEach((name, url) => {
       this.pokemonListService.getPokemon(name.url).subscribe(result => {
-        console.log(result);
 
         let types: number = result.types.length;
         let typesString: string[] = [];

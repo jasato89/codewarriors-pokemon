@@ -7,18 +7,24 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
+import { PokesearchComponent } from './components/pokesearch/pokesearch.component';
+import {AutocompleteLibModule} from "angular-ng-autocomplete";
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
-    PokedexCardComponent
+    PokedexCardComponent,
+    PokesearchComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
