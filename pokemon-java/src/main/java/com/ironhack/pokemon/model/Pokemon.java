@@ -1,17 +1,20 @@
 package com.ironhack.pokemon.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Pokemon {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Integer pokemonId;
     private String name;
     private Double height;
     private Double weight;
     private Double baseExperience;
     //Guardamos el objeto de abilities como un string y luego con GSON lo transformamos a una lista
+    @Column( length = 100000 )
     private String abilities;
     private String speciesName;
     private String pictureFrontHq;
@@ -19,18 +22,21 @@ public class Pokemon {
     private String pictureBack;
     private Integer heldItemsQty;
     //Guardamos el objeto de stats como un string y luego con GSON lo transformamos a una lista
+    @Column( length = 100000 )
     private String stats;
     //Guardamos el objeto de types como un string y luego con GSON lo transformamos a una lista
+    @Column( length = 100000 )
     private String types;
-    //Guardamos el objeto de moves como un string y luego con GSON lo transformamos a una lista
-    private String moves;
 
+    @ManyToMany(mappedBy = "")
+    private List<Trainer> trainerList;
 
     public Pokemon() {
     }
 
-    public Pokemon(Integer id, String name, Double height, Double weight, Double baseExperience, String abilities, String speciesName, String pictureFrontHq, String pictureFront, String pictureBack, Integer heldItemsQty, String stats, String types, String moves) {
-        this.id = id;
+    //Full constructor
+    public Pokemon(Integer pokemonId, String name, Double height, Double weight, Double baseExperience, String abilities, String speciesName, String pictureFrontHq, String pictureFront, String pictureBack, Integer heldItemsQty, String stats, String types) {
+        this.pokemonId = pokemonId;
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -43,15 +49,39 @@ public class Pokemon {
         this.heldItemsQty = heldItemsQty;
         this.stats = stats;
         this.types = types;
-        this.moves = moves;
     }
 
+    //Constructor without HQ image and without TrainerList
+    public Pokemon(Integer pokemonId, String name, Double height, Double weight, Double baseExperience, String abilities, String speciesName, String pictureFront, String pictureBack, Integer heldItemsQty, String stats, String types) {
+        this.pokemonId = pokemonId;
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
+        this.baseExperience = baseExperience;
+        this.abilities = abilities;
+        this.speciesName = speciesName;
+        this.pictureFront = pictureFront;
+        this.pictureBack = pictureBack;
+        this.heldItemsQty = heldItemsQty;
+        this.stats = stats;
+        this.types = types;
+    }
+
+    //Getters and setters
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getPokemonId() {
+        return pokemonId;
+    }
+
+    public void setPokemonId(Integer pokemonId) {
+        this.pokemonId = pokemonId;
     }
 
     public String getName() {
@@ -150,11 +180,11 @@ public class Pokemon {
         this.types = types;
     }
 
-    public String getMoves() {
-        return moves;
+    public List<Trainer> getTrainerList() {
+        return trainerList;
     }
 
-    public void setMoves(String moves) {
-        this.moves = moves;
+    public void setTrainerList(List<Trainer> trainerList) {
+        this.trainerList = trainerList;
     }
 }
