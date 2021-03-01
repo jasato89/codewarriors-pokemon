@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pokedexcodewarriors": {
+      "hosting": {
+        "pokemon-ng": [
+          "pokedexcodewarriors"
+        ]
+      }
+    }
+  }
+}

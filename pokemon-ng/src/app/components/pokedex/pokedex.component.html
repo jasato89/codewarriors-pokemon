@@ -1,12 +1,15 @@
 <div>
   <app-pokesearch class="m-2"></app-pokesearch>
   <div class="flex flex-col items-center m-2" *ngFor="let pokemon of pokemons; index as i">
-    <button class="text-pokemonYellow w-10/12 bg-pokemonNavyBlue rounded flex flex-row justify-start items-center" (click)="showStats(i)">
+    <button class="text-pokemonYellow w-full bg-pokemonNavyBlue rounded flex flex-row justify-between items-center"
+            (click)="showStats(i)">
       <img src="{{pokemon.sprites[0]}}">
-      <p class="h-6/12">{{pokemon.name}}</p>
+      <p class="p-2 ">{{pokemon.name}}</p>
+      <app-pokedex-card *ngIf="isActive[i]" [pokemon]="pokemon" [i]="i"></app-pokedex-card>
     </button>
-    <app-pokedex-card *ngIf="isActive[i]" [pokemon]="pokemon" [i]="i"></app-pokedex-card>
   </div>
-  <button (click)="backwards()">Previous</button>
-  <button (click)="forward()">Next</button>
+  <div class="flex justify-center">
+    <button class=" p-2 m-2" (click)="backwards()"><img class="w-10" src="assets/images/previous.svg"></button>
+    <button class=" p-2 m-2" (click)="forward()"><img class="w-10" src="assets/images/next.svg"></button>
+  </div>
 </div>
