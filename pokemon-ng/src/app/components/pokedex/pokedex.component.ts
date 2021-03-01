@@ -19,7 +19,7 @@ export class PokedexComponent implements OnInit {
 
   nextUrl: string = "";
   previousUrl: string = "";
-  currentUrl: string = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0";
+  currentUrl: string = "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0";
   pokemonList: PokemonList = {} as PokemonList;
   pokemons: Pokemon[] = [] as Pokemon[];
   isActive: boolean[] = [];

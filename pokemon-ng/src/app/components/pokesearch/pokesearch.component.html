@@ -1,6 +1,6 @@
 <div class="flex flex-wrap justify-center">
-  <div class="w-5/12 p-2">
-    <p>Trainer:</p>
+  <div class="w-full md:w-5/12 p-2">
+    <p class="text-pokemonYellow">Trainer:</p>
     <ng-autocomplete
       [data]="userData"
       [searchKeyword]="userKeyword"
@@ -21,8 +21,8 @@
   </div>
 
 
-  <div class="w-5/12 p-2">
-    <p>Pokemon:</p>
+  <div class="w-full md:w-5/12 p-2">
+    <p class="text-pokemonYellow">Pokemon:</p>
     <ng-autocomplete
       [data]="pokemonData"
       [searchKeyword]="pokemonKeyword"
@@ -42,7 +42,7 @@
     </ng-template>
   </div>
 
-  <div class="w-3/12 flex justify-center align-middle p-2 bg-pokemonYellow rounded">
-    <button class="bg-pokemonYellow rounded">Add pokemon</button>
+  <div class="w-4/12 flex justify-center align-middle p-2 bg-pokemonYellow rounded">
+    <button class="bg-pokemonYellow rounded w-full  ">Add pokemon</button>
   </div>
 </div>
