@@ -54,7 +54,8 @@ public class TrainerService implements ITrainerService {
             trainer = new Trainer(
                     trainerPostDTO.getName(),
                     trainerPostDTO.getBirthDate(),
-                    trainerPostDTO.getPictureUrl()
+                    trainerPostDTO.getPictureUrl(),
+                    trainerPostDTO.getHobby()
             );
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Something wrong in the TrainerPostDTO sent");
@@ -139,6 +140,7 @@ public class TrainerService implements ITrainerService {
                 trainer.getName(),
                 trainer.getBirthDate(),
                 trainer.getPictureUrl(),
+                trainer.getHobby(),
                 trainer.getPokemonList());
     }
 }

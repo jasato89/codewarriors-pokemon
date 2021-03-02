@@ -12,6 +12,7 @@ public class Trainer {
     private String name;
     private LocalDate birthDate;
     private String pictureUrl;
+    private String hobby;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -26,16 +27,18 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer(String name, LocalDate birthDate, String pictureUrl) {
+    public Trainer(String name, LocalDate birthDate, String pictureUrl, String hobby) {
         this.name = name;
         this.birthDate = birthDate;
         this.pictureUrl = pictureUrl;
+        this.hobby = hobby;
     }
 
-    public Trainer(String name, LocalDate birthDate, String pictureUrl, List<Pokemon> pokemonList) {
+    public Trainer(String name, LocalDate birthDate, String pictureUrl, String hobby, List<Pokemon> pokemonList) {
         this.name = name;
         this.birthDate = birthDate;
         this.pictureUrl = pictureUrl;
+        this.hobby = hobby;
         this.pokemonList = pokemonList;
     }
 
@@ -69,6 +72,14 @@ public class Trainer {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 
     public List<Pokemon> getPokemonList() {
