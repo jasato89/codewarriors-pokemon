@@ -66,7 +66,6 @@ export class PokedexComponent implements OnInit {
     this.pokemons = [];
     this.pokemonList.results.forEach((name, url) => {
       this.pokemonListService.getPokemon(name.url).subscribe(result => {
-        console.log(result);
 
         let types: number = result.types.length;
         let typesString: string[] = [];
