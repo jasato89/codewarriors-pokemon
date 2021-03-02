@@ -1,3 +1,4 @@
+import { PokemonList } from './../../classes/pokemon-list-class/pokemon-list';
 import { PokemonService } from './../../services/pokemon-service/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/classes/trainer/trainer';
@@ -13,12 +14,11 @@ export class TrainerComponent implements OnInit {
   trainerList: Trainer[] = [];
   trainerId: number= -1;
   trainerName: string = '';
-  trainerAge: number = 0;
+  trainerAge: string = "";
   trainerHobby: string = '';
   trainerPhoto: string = '';
   url: string ='';
  
-
   placeHolderText: string = 'Please, introduce the name';
   placeHolderText2: string = 'Please, introduce the hobby';
 
@@ -35,17 +35,30 @@ export class TrainerComponent implements OnInit {
     return this.placeHolderText2;
   }
 
-  createNewTrainer(photo?: string): void {
-
-    const trainer: Trainer = new Trainer(this.trainerId, this.trainerName, this.trainerAge, this.trainerHobby, photo, true);
+  createNewTrainer(): void {
+    const trainer: Trainer = new Trainer(this.trainerId, this.trainerName, this.trainerAge, this.trainerHobby, this.trainerPhoto);
     this.trainerList.push(trainer);
     }
- 
+
+    findTrainer():void{
+    this.trainerList = [];
+    this.trainerService.getAllTrainer().subscribe((dataResult)=>{
+      console.log(dataResult)
+      for(let i=0; i<dataResult.length;i++){
+        this.trainerId = dataResult[i].id;
+        this.trainerName = dataResult[i].name;
+        this.trainerAge= dataResult[i].birthDate;
+        this.trainerHobby=dataResult[i].hobby;
+        this.trainerPhoto = dataResult[i].pictureUrl;
+        this.trainerList.push(new Trainer(this.trainerId, this.trainerName, this.trainerAge, this.trainerHobby,
+        this.trainerPhoto))
+      }
+    });
+  }
+
   delete(trainerId: number): void {
-    
       this.trainerList.splice(trainerId-1, 1);
       this.trainerService.deleteTrainer(trainerId);
-   
     }
 
     ngOnInit(): void {

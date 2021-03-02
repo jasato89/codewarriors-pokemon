@@ -1,13 +1,13 @@
+import { PokemonList } from './../pokemon-list-class/pokemon-list';
 export class Trainer {
     
     constructor(
 
         private _id:number,
         private _name: string,
-        private _age: number,
+        private _birthDate: string,
         private _hobby: string,
-        private _photo: string = '',
-        private _isCreated: boolean
+        private _pictureUrl: string = '',
 
       ){}
 
@@ -18,39 +18,32 @@ export class Trainer {
       get name(): string {
         return this._name;
       }
-      get age(): number {
-        return this._age;
+      get birthDate(): string {
+        return this._birthDate;
       }
       get hobby(): string {
         return this._hobby;
       }
-      get photo(): string {
-        return this._photo;
+      get pictureUrl(): string {
+        return this._pictureUrl;
       }
 
-      get isCreated():boolean{
-        return this._isCreated;
-    }
-
-    set id(id:number){
-      this._id = id;
-  }
+      set id(id:number){
+          this._id = id;
+      }
     
       set name(name: string) {
         this._name = name;
       }
-      set age(age: number) {
-        this._age = age;
+      set birthDate(birthDate: string) {
+        this._birthDate = birthDate;
       }
       set hobby(hobby: string) {
         this._hobby = hobby;
       }
     
-      set photo(photo: string) {
-        this._photo = photo;
-      }   
+      set pictureUrl(pictureUrl: string) {
+        this._pictureUrl = pictureUrl;
+      }  
       
-      set isCreated(isCreated:boolean){
-        this._isCreated = isCreated;
-    }
 }
