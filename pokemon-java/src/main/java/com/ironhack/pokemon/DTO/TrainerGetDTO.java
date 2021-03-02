@@ -10,16 +10,18 @@ public class TrainerGetDTO {
     private String name;
     private LocalDate birthDate;
     private String pictureUrl;
+    private String hobby;
     private List<Pokemon> pokemonList;
 
     public TrainerGetDTO() {
     }
 
-    public TrainerGetDTO(Long id, String name, LocalDate birthDate, String pictureUrl, List<Pokemon> pokemonList) {
+    public TrainerGetDTO(Long id, String name, LocalDate birthDate, String pictureUrl, String hobby, List<Pokemon> pokemonList) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
         this.pictureUrl = pictureUrl;
+        this.hobby = hobby;
         this.pokemonList = pokemonList;
     }
 
@@ -53,6 +55,14 @@ public class TrainerGetDTO {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 
     public List<Pokemon> getPokemonList() {

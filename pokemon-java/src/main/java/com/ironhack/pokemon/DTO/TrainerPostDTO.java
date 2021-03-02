@@ -6,14 +6,16 @@ public class TrainerPostDTO {
     private String name;
     private LocalDate birthDate;
     private String pictureUrl;
+    private String hobby;
 
     public TrainerPostDTO() {
     }
 
-    public TrainerPostDTO(String name, LocalDate birthDate, String pictureUrl) {
+    public TrainerPostDTO(String name, LocalDate birthDate, String pictureUrl, String hobby) {
         this.name = name;
         this.birthDate = birthDate;
         this.pictureUrl = pictureUrl;
+        this.hobby = hobby;
     }
 
     public String getName() {
@@ -30,6 +32,14 @@ public class TrainerPostDTO {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 
     public String getPictureUrl() {
