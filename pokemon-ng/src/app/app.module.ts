@@ -14,6 +14,7 @@ import { TrainerComponent } from './components/trainer/trainer.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 import { TeamComponent } from './components/team/team.component';
 import { TeamItemComponent } from './components/team-item/team-item/team-item.component';
+import { NotFoundComponent } from './components/notFound/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TeamItemComponent } from './components/team-item/team-item/team-item.co
     PokesearchComponent,
     NavBarComponent,
     TrainerCardComponent,
-    TrainerComponent
+    TrainerComponent,
+    NotFoundComponent
   ],
 
   imports: [
