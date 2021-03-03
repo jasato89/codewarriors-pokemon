@@ -9,6 +9,8 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { TeamComponent } from './components/team/team.component';
+import { TeamItemComponent } from './components/team-item/team-item/team-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     PokedexComponent,
     PokedexCardComponent,
     TrainerComponent,
-    TrainerCardComponent
+    TrainerCardComponent,
+    TeamComponent,
+    TeamItemComponent
   ],
   
   imports: [
