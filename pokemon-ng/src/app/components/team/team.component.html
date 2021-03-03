@@ -1,6 +1,6 @@
 <div class="container center mt-10">
 
-  <div class="my-20">
+  <!-- <div class="my-20">
     <form (ngSubmit)="onSubmit()" #form="ngForm">
       <div class="grid grid-cols-3">
         <div>
@@ -39,7 +39,12 @@
         </div>
       </div>
     </form>
-  </div>
+  </div> -->
 
-  <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"></app-team-item>
+  <div>
+    <app-pokesearch [team]="teamList"></app-pokesearch>
+  </div>
+  <div>
+    <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"></app-team-item>
+  </div>
 </div>

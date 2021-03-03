@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {PokemonList} from "../../classes/pokemon-list-class/pokemon-list";
-import {Pokeinterface} from "../../interfaces/pokeinterface";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { PokemonList } from "../../classes/pokemon-list-class/pokemon-list";
+import { Pokeinterface } from "../../interfaces/pokeinterface";
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +19,18 @@ export class PokemonService {
     return this.http.get<PokemonList>(url);
   }
 
-  getPokemon(url:string) : Observable<Pokeinterface> {
+  getPokemon(url: string): Observable<Pokeinterface> {
     return this.http.get<Pokeinterface>(url);
   }
 
-  async getPokemonByName(name: string): Promise<Observable<any>>{
+  async getPokemonByName(name: string): Promise<Observable<any>> {
     let response = await this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${name}`).toPromise();
+    return response;
+  }
+
+  async getFullPokemon(id: number): Promise<Observable<any>> {
+    let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    let response = await this.http.get<any>(url).toPromise();
     return response;
   }
 

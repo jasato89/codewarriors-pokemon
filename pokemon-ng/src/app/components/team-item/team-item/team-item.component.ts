@@ -17,8 +17,7 @@ export class TeamItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.item.pokemon);
-    console.log(JSON.parse(this.item.pokemon.abilities));
+
   }
 
   getBasicStats(statsString: string): string {
