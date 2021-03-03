@@ -1,0 +1,18 @@
+<div>
+    <img [src]="getImageSource(item.trainer.pictureUrl)">
+    <p>Trainer name: {{item.trainer.name}}</p>
+    <p>Trainer date of birth: {{item.trainer.birthDate}}</p>
+    <p>Hobby: {{item.trainer.hobby}}</p>
+    <br>
+    <img src={{item.pokemon.pictureFront}} alt="">
+    <p>Pokemon: {{item.pokemon.name}}</p>
+    <p>weight: {{item.pokemon.weight}}</p>
+    <p>height: {{item.pokemon.height}}</p>
+    <p>base experience: {{item.pokemon.baseExperience}}</p>
+    <p>held items: {{item.pokemon.heldItemsQty}}</p>
+    <p>Basic stats: {{getBasicStats(item.pokemon.stats)}}</p>
+    <br>
+    <button (click)="removeItem(item.id)" class="btn bg-black red">Remove</button>
+    <br><br><br>
+
+</div>
