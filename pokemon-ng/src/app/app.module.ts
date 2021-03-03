@@ -12,17 +12,24 @@ import {AutocompleteLibModule} from "angular-ng-autocomplete";
 import { NavBarComponent } from './components/main/nav-bar.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { TeamComponent } from './components/team/team.component';
+import { TeamItemComponent } from './components/team-item/team-item/team-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
     PokedexCardComponent,
+    TrainerComponent,
+    TrainerCardComponent,
+    TeamComponent,
+    TeamItemComponent,
     PokesearchComponent,
     NavBarComponent,
     TrainerCardComponent,
     TrainerComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

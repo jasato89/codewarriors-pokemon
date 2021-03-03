@@ -12,7 +12,7 @@ export class PokemonDTO {
         private _pictureFrontHq: string,
         private _pictureFront: string,
         private _pictureBack: string,
-        private __heldItemsQty: number,
+        private _heldItemsQty: number,
         private _stats: string,
         private _types: string
     ) { }
@@ -29,11 +29,11 @@ export class PokemonDTO {
     public set stats(value: string) {
         this._stats = value;
     }
-    public get _heldItemsQty(): number {
-        return this.__heldItemsQty;
+    public get heldItemsQty(): number {
+        return this._heldItemsQty;
     }
-    public set _heldItemsQty(value: number) {
-        this.__heldItemsQty = value;
+    public set heldItemsQty(value: number) {
+        this._heldItemsQty = value;
     }
     public get pictureBack(): string {
         return this._pictureBack;
