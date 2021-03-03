@@ -9,8 +9,7 @@
 
     <div class="px-2 py-2 flex flex-col w-full">
       <label for="trainerName" class="my-3 ">Trainer Name</label>
-      <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName"
-             name="inputTrainerName">
+      <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
     </div>
 
     <div class=" px-2 py-2 flex flex-col w-full ">
@@ -25,7 +24,9 @@
 
     <div class="px-2 py-2 flex flex-col rounded-b w-full ">
       <label for="pictureUrl" class="my-3">Upload your profile picture</label>
-      <input type='file' (change)="readUrl($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
+      <input type='file' (change)="readUrl($event)" [(ngModel)]="pictureUrl" name="pictureUrl"/>
+      <img [src]="data:image/jpeg;base64, {{pictureUrl}}" alt="" width="100" height="100"> 
+     
     </div>
 
 

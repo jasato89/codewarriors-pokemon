@@ -1,10 +1,12 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export class Trainer {
 
   constructor(
     private _name: string,
     private _birthDate: Date,
     private _hobby: string,
-    private _pictureUrl: string,
+    private _pictureUrl: Byte[],
     private _id?: number,
   ) { }
 
@@ -22,7 +24,7 @@ export class Trainer {
   get hobby(): string {
     return this._hobby;
   }
-  get pictureUrl(): string {
+  get pictureUrl(): Byte[] {
     return this._pictureUrl;
   }
 
@@ -40,7 +42,7 @@ export class Trainer {
     this._hobby = hobby;
   }
 
-  set pictureUrl(pictureUrl: string) {
+  set pictureUrl(pictureUrl: Byte[]) {
     this._pictureUrl = pictureUrl;
   }
 

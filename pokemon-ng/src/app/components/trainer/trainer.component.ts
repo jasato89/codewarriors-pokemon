@@ -1,6 +1,7 @@
 import { TrainerService } from '../../services/trainer-service/trainer.service';
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/classes/trainer/trainer';
+import { Byte } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-trainer',
@@ -14,7 +15,7 @@ export class TrainerComponent implements OnInit {
   inputTrainerName: string = '';
   inputTrainerDOB!: Date;
   inputTrainerHobby: string = '';
-  inputPictureUrl: string = '';
+  pictureUrl!: Byte[];
   showAddTrainer: boolean = false;
 
   placeHolderText: string = 'Please, introduce the name';
@@ -41,7 +42,7 @@ export class TrainerComponent implements OnInit {
       var reader = new FileReader();
 
       reader.onload = (event: any) => {
-        this.inputPictureUrl = event.target.result;
+        this.pictureUrl = event.target.result;
       }
 
       reader.readAsDataURL(event.target.files[0]);
@@ -73,7 +74,7 @@ createNewTrainer(): void {
       this.inputTrainerName,
       this.inputTrainerDOB,
       this.inputTrainerHobby,
-      this.inputPictureUrl);
+      this.pictureUrl);
       this.trainerService.createTrainer(trainer);
     //Vuelves a llamar a la BBDD para actualizar la lista de trainers
       this.findTrainers();

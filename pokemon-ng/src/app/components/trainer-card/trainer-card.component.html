@@ -2,10 +2,7 @@
     
   <div (mouseover)="hover=true" (mouseleave)="hover=false">
       <div id="box1" class="boxed" [ngStyle]="{backgroundColor: hover==true  ? 'aquamarine' : 'white'}">
-      <div class="trans"> 
-      <input type='file' (change)="readUrl($event)">
-      </div>
-      <img [src]="url" alt="" width="100" height="100"> 
+      <img [src]="data:image/jpeg;base64, {{pictureUrl}}" alt="" width="100" height="100"> 
       <p> Name: {{trainer.name}} Age: {{trainer.birthDate}} Hobby: {{trainer.hobby}}</p>
       <button (click)="delete(trainerId)">Delete Trainer</button>
     </div>
