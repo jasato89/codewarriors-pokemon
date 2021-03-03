@@ -56,6 +56,7 @@ export class TrainerComponent implements OnInit {
       this.inputTrainerDOB,
       this.inputTrainerHobby,
       this.pictureUrl);
+    console.log(this.pictureUrl);
     let response = await this.trainerService.createTrainer(trainer);
     console.log(response);
     // Vuelves a llamar a la BBDD para actualizar la lista de trainers

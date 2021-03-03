@@ -36,11 +36,10 @@
         <label for="pictureUrl" class="my-3">Upload your profile picture</label>
         <input type='file' (change)="readUrl($event)" name="pictureUrl"/>
       </div>
-
       <div class="sm:col-span-2 flex justify-center align-middle">
         <button type="submit" [disabled]="form.invalid"
-                class="text-pokemonNavyBlue bg-pokemonYellow p-2 m-2 w-full w-8/12 sm:w-4/12 rounded"
-                (click)="addTrainer()">Create trainer
+                class="text-pokemonNavyBlue bg-pokemonYellow p-2 m-2 w-full w-8/12 sm:w-4/12 rounded">
+          Create trainer
         </button>
       </div>
     </form>
