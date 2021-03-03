@@ -10,6 +10,11 @@
   --pokemon-dark-red: #cc0000;
 }
 
+.bgImg{
+  background-image:url("src/assets/images/test-bg.png");
+  background-size: 150px;
+}
+
 
 
 

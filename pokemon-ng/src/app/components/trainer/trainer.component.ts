@@ -15,6 +15,7 @@ export class TrainerComponent implements OnInit {
   inputTrainerDOB!: Date;
   inputTrainerHobby: string = '';
   inputPictureUrl: string = '';
+  showAddTrainer: boolean = false;
 
   placeHolderText: string = 'Please, introduce the name';
   placeHolderText2: string = 'Please, introduce the hobby';
@@ -51,7 +52,7 @@ export class TrainerComponent implements OnInit {
 
     var files = event.target.files;
     for (var i = 0, len = files.length; i < len; i++) {
-      
+
         var file = files[i];
 
         var reader = new FileReader();
@@ -67,7 +68,7 @@ export class TrainerComponent implements OnInit {
 
 
 createNewTrainer(): void {
-  
+
       const trainer: Trainer = new Trainer(
       this.inputTrainerName,
       this.inputTrainerDOB,
@@ -76,7 +77,7 @@ createNewTrainer(): void {
       this.trainerService.createTrainer(trainer);
     //Vuelves a llamar a la BBDD para actualizar la lista de trainers
       this.findTrainers();
-  }  
+  }
 
   findTrainers(): void {
     this.trainerList = [];
@@ -100,5 +101,9 @@ createNewTrainer(): void {
   }
 
 
+  addTrainer():void {
+    this.showAddTrainer = !this.showAddTrainer;
+
+  }
 }
 

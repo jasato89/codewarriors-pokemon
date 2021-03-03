@@ -1,36 +1,48 @@
-<h1>Pokemon Trainers</h1>
-<br>
-<button (click)='findTrainers()' class="bg-purple-600 bg-opacity-75 text-white">Get Trainers</button>
-<br>
-<hr>
-<br>
+<div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
 
-<form (ngSubmit)="createNewTrainer()" #form="ngForm" class="grid grid-cols-1 mx-5 mt-5">
-<label for="trainerName" class="mt-3">Trainer Name</label>
- <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
+  <div class="flex flex-col justify-center items-center">
+    <button (click)="addTrainer()">Add new trainer</button>
+  </div>
 
-  <label for="trainerAge" class="mt-3">Trainer Birthday</label>
-  <input type="text" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
+  <div *ngIf="showAddTrainer" class="bg-pokemonNavyBlue m-5 p-2 flex flex-col items-center">
+  <form (ngSubmit)="createNewTrainer()" #form="ngForm" class="text-pokemonYellow w-full grid grid-cols-1 sm:grid-cols-2 items-center justify-center p-2">
 
-  <label for="traierHobby" class="mt-3">Trainer Hobby</label>
-  <input type="text" [placeholder]="getPlaceHolder2()" [(ngModel)]="inputTrainerHobby" name="inputTrainerHobby">
+    <div class="px-2 py-2 flex flex-col w-full">
+      <label for="trainerName" class="my-3 ">Trainer Name</label>
+      <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName"
+             name="inputTrainerName">
+    </div>
 
-  <label for="pictureUrl" class="mt-3">Upload your profile picture</label>
-  <input type='file' (change)="readUrl($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
-  <input type='file' (change)="openFiles($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
+    <div class=" px-2 py-2 flex flex-col w-full ">
+      <label for="trainerAge" class="my-3">Trainer Birthday</label>
+      <input type="text" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
+    </div>
 
-  <button type="submit" [disabled]="form.invalid" class="btn border-gray-400 rounded">Create Trainer</button>
-</form>
+    <div class="px-2 py-2 flex flex-col w-full ">
+      <label for="trainerHobby" class="my-3">Trainer Hobby</label>
+      <input type="text" [placeholder]="getPlaceHolder2()" [(ngModel)]="inputTrainerHobby" name="inputTrainerHobby">
+    </div>
 
-<br>
-<hr>
-<br>
-<h2 class="mt-5">Trainers: </h2>
-<div *ngFor="let trainer of trainerList let i = index">
-  <p> {{i+1}} - {{trainer.name}} </p>
-</div>
+    <div class="px-2 py-2 flex flex-col rounded-b w-full ">
+      <label for="pictureUrl" class="my-3">Upload your profile picture</label>
+      <input type='file' (change)="readUrl($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
+    </div>
 
-<div>
-  <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
-    (deleteTrainerEvent)="delete($event)"></app-trainer-card>
+
+  </form>
+    <button type="submit" [disabled]="form.invalid" class="btn border-gray-400 rounded">Create Trainer</button>
+
+  </div>
+
+  <h2 class="mt-5">Trainers: </h2>
+  <div *ngFor="let trainer of trainerList let i = index">
+    <p> {{i + 1}} - {{trainer.name}} </p>
+  </div>
+
+  <div>
+    <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
+                      (deleteTrainerEvent)="delete($event)"></app-trainer-card>
+  </div>
+
+
 </div>

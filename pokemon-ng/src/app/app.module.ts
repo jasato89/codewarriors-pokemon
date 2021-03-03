@@ -9,7 +9,7 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexCardComponent } from './components/pokedex-card/pokedex-card.component';
 import { PokesearchComponent } from './components/pokesearch/pokesearch.component';
 import {AutocompleteLibModule} from "angular-ng-autocomplete";
-import { MainComponent } from './components/main/main.component';
+import { NavBarComponent } from './components/main/nav-bar.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
 
@@ -19,7 +19,7 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     PokedexComponent,
     PokedexCardComponent,
     PokesearchComponent,
-    MainComponent,
+    NavBarComponent,
     TrainerCardComponent,
     TrainerComponent
   ],
