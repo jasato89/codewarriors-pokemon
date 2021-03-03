@@ -9,7 +9,29 @@
             <option value={{trainer.id}} *ngFor="let trainer of trainersList, let i = index">{{trainer.name}}</option>
           </select>
         </div>
+
+        <div class="w-full md:w-5/12 p-2">
+          <p class="text-pokemonYellow">Pokemon:</p>
+          <ng-autocomplete
+            [data]="pokemonData"
+            [searchKeyword]="pokemonKeyword"
+            (selected)="selectEvent($event)"
+            (inputChanged)="onChangeSearch($event)"
+            (inputFocused)="onFocused($event)"
+            [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">
+          </ng-autocomplete>
+      
+          <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+          </ng-template>
+      
+          <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
         <div>
+
           <input type="text" name="pokemonName" id="pokemonName" [(ngModel)]="pokemonName" placeholder="Type Pokemon name">
         </div>
         <div>

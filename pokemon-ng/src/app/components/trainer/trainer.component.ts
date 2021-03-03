@@ -42,6 +42,7 @@ export class TrainerComponent implements OnInit {
 
       reader.onload = (event: any) => {
         this.inputPictureUrl = event.target.result;
+
       }
 
       reader.readAsDataURL(event.target.files[0]);
@@ -68,7 +69,7 @@ export class TrainerComponent implements OnInit {
 
 
 createNewTrainer(): void {
-
+  console.log(this.inputPictureUrl);
       const trainer: Trainer = new Trainer(
       this.inputTrainerName,
       this.inputTrainerDOB,
