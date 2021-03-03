@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PocketMonk";
+  src: local("PocketMonk-15ze.ttf"), url(./assets/fonts/PocketMonk-15ze.ttf) format("truetype");
+}
+
 :root {
   --pokemon-blue: #3b4cca;
   --pokemon-yellow: #ffde00;
@@ -14,6 +19,14 @@
   background-image:url("src/assets/images/test-bg.png");
   background-size: 150px;
 }
+
+.pokeFont {
+  font-family: 'PocketMonk';
+  font-size: 48px;
+  color: #ffcb05;
+}
+
+
 
 
 

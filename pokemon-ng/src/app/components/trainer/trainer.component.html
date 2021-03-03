@@ -1,15 +1,17 @@
 <div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
 
+  <div class="flex flex-col items-center justify-center w-full py-2 ">
+    <h2 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Trainers </h2>
+  </div>
+
   <div class="flex justify-center align-middle">
     <button class="bg-pokemonYellow p-2 m-2 w-full w-8/12 sm:w-4/12 rounded" (click)="addTrainer()">Add new trainer
     </button>
   </div>
 
-  <div class="flex flex-col justify-center items-center">
-    <button (click)="addTrainer()"></button>
-  </div>
 
-  <div *ngIf="showAddTrainer" class="bg-pokemonNavyBlue m-5 p-2 flex flex-col items-center">
+
+  <div *ngIf="showAddTrainer" class="bg-pokemonNavyBlue m-5 p-2 flex flex-col items-center rounded">
 
     <img [src]="pictureUrl" class="inline-block h-6 w-6 rounded-full w-24 h-24 object-cover" alt=""
          width="100" height="100">
@@ -45,13 +47,9 @@
     </form>
   </div>
 
-  <h2 class="mt-5">Trainers: </h2>
-  <div *ngFor="let trainer of trainerList let i = index">
-    <p> {{i + 1}} - {{trainer.name}} </p>
-  </div>
-  <div class="text-pokemonYellow grid sm:grid-cols-4 xl:grid-cols-6 grid-cols-2 p-2">
-  <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
-                    (deleteTrainerEvent)="delete($event)"></app-trainer-card>
+  <div class="text-pokemonYellow grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 p-2 m-5 bg-pokemonNavyBlue rounded">
+    <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
+                      (deleteTrainerEvent)="delete($event)"></app-trainer-card>
   </div>
 
 </div>
