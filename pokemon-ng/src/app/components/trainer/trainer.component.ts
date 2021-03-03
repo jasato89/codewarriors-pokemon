@@ -60,7 +60,8 @@ export class TrainerComponent implements OnInit {
     let response = await this.trainerService.createTrainer(trainer);
     console.log(response);
     // Vuelves a llamar a la BBDD para actualizar la lista de trainers
-    this.findTrainers();
+    this.findTrainers()
+    this.showAddTrainer = false;
   }
 
   findTrainers(): void {
