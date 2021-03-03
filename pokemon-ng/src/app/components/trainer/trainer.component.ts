@@ -16,7 +16,7 @@ export class TrainerComponent implements OnInit {
   inputTrainerName: string = '';
   inputTrainerDOB!: Date;
   inputTrainerHobby: string = '';
-  pictureUrl!: string;
+  pictureUrl: string = 'assets/images/Daco_4203200.png';
   showAddTrainer: boolean = false;
   trainer!: Trainer;
 
@@ -90,7 +90,7 @@ export class TrainerComponent implements OnInit {
   }
 
   // getImageSource(): SafeUrl{
-  //   let picUrl = this.pictureUrl.toString(); 
+  //   let picUrl = this.pictureUrl.toString();
   //   return this.sanitizer.bypassSecurityTrustUrl(picUrl);
   // }
 }
