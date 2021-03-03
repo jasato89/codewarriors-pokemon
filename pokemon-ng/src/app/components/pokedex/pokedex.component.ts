@@ -2,11 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../services/pokemon-service/pokemon.service";
 import {PokemonList} from "../../classes/pokemon-list-class/pokemon-list";
 import {Pokemon} from "../../classes/pokemon/pokemon";
+import {
+  fadeInDownBigAnimation,
+  fadeInDownBigOnEnterAnimation,
+  fadeInDownOnEnterAnimation,
+  fadeInLeftBigOnEnterAnimation, fadeInRightBigOnEnterAnimation
+} from "angular-animations";
 
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.css']
+  styleUrls: ['./pokedex.component.css'],
+  animations: [
+    fadeInDownOnEnterAnimation(),
+    fadeInLeftBigOnEnterAnimation(),
+    fadeInRightBigOnEnterAnimation()
+
+  ]
 })
 export class PokedexComponent implements OnInit {
 
@@ -23,6 +35,7 @@ export class PokedexComponent implements OnInit {
   pokemonList: PokemonList = {} as PokemonList;
   pokemons: Pokemon[] = [] as Pokemon[];
   isActive: boolean[] = [];
+  isLeft: boolean = true;
 
   getPokemonList(url: string): PokemonList {
     this.pokemonList = {} as PokemonList;
@@ -37,12 +50,14 @@ export class PokedexComponent implements OnInit {
   }
 
   forward(): void {
+    this.isLeft = true;
     this.currentUrl = this.nextUrl;
     this.getPokemonList(this.currentUrl);
 
   }
 
   backwards(): void {
+    this.isLeft = false;
     this.currentUrl = this.previousUrl;
     this.getPokemonList(this.currentUrl);
 

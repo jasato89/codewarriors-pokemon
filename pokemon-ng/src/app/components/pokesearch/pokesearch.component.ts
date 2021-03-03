@@ -4,17 +4,19 @@ import {AppComponent} from "../../app.component";
 import {PokemonList} from "../../classes/pokemon-list-class/pokemon-list";
 import {PokemonService} from "../../services/pokemon-service/pokemon.service";
 
+
+
 @Component({
   selector: 'app-pokesearch',
   templateUrl: './pokesearch.component.html',
-  styleUrls: ['./pokesearch.component.css']
+  styleUrls: ['./pokesearch.component.css'],
+
 })
 
 export class PokesearchComponent implements OnInit {
-
-
   constructor(private pokemonListService: PokemonService) {
   }
+
 
   ngOnInit(): void {
     this.getPokemonList();
@@ -29,9 +31,9 @@ export class PokesearchComponent implements OnInit {
   userKeyword = 'name';
   userData: Data[] = [new Data(0, "Pedro"), new Data(1, "Jose")];
 
-  getPokemonList():void {
+  getPokemonList(): void {
     this.pokemonData = [];
-    this.pokemonListService.getPokemonList("https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0").subscribe(result =>{
+    this.pokemonListService.getPokemonList("https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0").subscribe(result => {
       result.results.forEach(((value, index) => {
 
         this.pokemonData.push(new Data(index, value.name[0].toUpperCase() + value.name.substr(1)));
@@ -57,6 +59,6 @@ export class PokesearchComponent implements OnInit {
 }
 
 export class Data {
-  constructor(private id : number, private name: string) {
+  constructor(private id: number, private name: string) {
   }
 }

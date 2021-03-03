@@ -15,6 +15,7 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
 import { TeamComponent } from './components/team/team.component';
 import { TeamItemComponent } from './components/team-item/team-item/team-item.component';
 import { NotFoundComponent } from './components/notFound/not-found/not-found.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NotFoundComponent } from './components/notFound/not-found/not-found.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
