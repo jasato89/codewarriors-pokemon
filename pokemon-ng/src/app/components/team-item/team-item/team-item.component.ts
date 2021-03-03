@@ -53,9 +53,6 @@ export class TeamItemComponent implements OnInit {
     });
   }
 
-  getImageSource(pictureUrl: string): string{
-    return `data:image/png;base64,${pictureUrl}`;
-  }
 }
 
 

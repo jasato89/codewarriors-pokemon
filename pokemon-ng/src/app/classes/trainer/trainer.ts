@@ -1,5 +1,6 @@
-export class Trainer {
+import { Byte } from "@angular/compiler/src/util";
 
+export class Trainer {
   constructor(
     private _name: string,
     private _birthDate: Date,
@@ -8,6 +9,12 @@ export class Trainer {
     private _id?: number,
   ) { }
 
+  public get pictureUrl(): string {
+    return this._pictureUrl;
+  }
+  public set pictureUrl(value: string) {
+    this._pictureUrl = value;
+  }
 
   get id(): number {
     return !this._id ? -1 : this._id;
@@ -21,9 +28,6 @@ export class Trainer {
   }
   get hobby(): string {
     return this._hobby;
-  }
-  get pictureUrl(): string {
-    return this._pictureUrl;
   }
 
   set id(id: number) {
@@ -40,9 +44,6 @@ export class Trainer {
     this._hobby = hobby;
   }
 
-  set pictureUrl(pictureUrl: string) {
-    this._pictureUrl = pictureUrl;
-  }
 
 }
 

@@ -25,18 +25,18 @@ export class TrainerService {
     });
   }
 
-    createTrainer(trainer: Trainer):void{
-    this.http.post(this.baseUrl+"/trainer", this.body(trainer)).subscribe(data=>
-    console.log('Post new Trainer'));
-   }
+  async createTrainer(trainer: Trainer): Promise<void> {
+    await this.http.post<Trainer>(this.baseUrl + "/trainer", this.body(trainer)).toPromise();
+  }
 
-   body(trainer: Trainer): any {
+  body(trainer: Trainer): any {
     let trainerBody: any = {
       name: trainer.name,
-      age: trainer.birthDate,
+      birthDate: trainer.birthDate,
       hobby: trainer.hobby,
-      photo: trainer.pictureUrl
+      pictureUrl: trainer.pictureUrl
     }
+    console.log(trainerBody);
     return trainerBody;
   }
 
