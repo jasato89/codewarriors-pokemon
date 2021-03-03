@@ -17,6 +17,7 @@ export class TrainerComponent implements OnInit {
   inputTrainerHobby: string = '';
   pictureUrl!: Byte[];
   showAddTrainer: boolean = false;
+  trainer!: Trainer;
 
   placeHolderText: string = 'Please, introduce the name';
   placeHolderText2: string = 'Please, introduce the hobby';
@@ -40,36 +41,14 @@ export class TrainerComponent implements OnInit {
   readUrl(event: any) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-
       reader.onload = (event: any) => {
         this.pictureUrl = event.target.result;
       }
-
       reader.readAsDataURL(event.target.files[0]);
     }
   }
 
-  openFiles(event:any){
-
-    var files = event.target.files;
-    for (var i = 0, len = files.length; i < len; i++) {
-
-        var file = files[i];
-
-        var reader = new FileReader();
-
-        reader.onload = (function(f) {
-            return event.target.result;
-        })(file);
-
-        reader.readAsText(file);
-    }
-}
-
-
-
 createNewTrainer(): void {
-
       const trainer: Trainer = new Trainer(
       this.inputTrainerName,
       this.inputTrainerDOB,
@@ -104,7 +83,12 @@ createNewTrainer(): void {
 
   addTrainer():void {
     this.showAddTrainer = !this.showAddTrainer;
+    console.log(this.pictureUrl)
 
+  }
+
+  getImageSource(pictureUrl: string): string{
+    return `data:image/png;base64,${pictureUrl}`;
   }
 }
 

@@ -1,5 +1,7 @@
 <div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
 
+  <button (click)='findTrainers()' class="bg-purple-600 bg-opacity-75 text-white">Get Trainers</button>
+
   <div class="flex flex-col justify-center items-center">
     <button (click)="addTrainer()">Add new trainer</button>
   </div>
@@ -7,32 +9,29 @@
   <div *ngIf="showAddTrainer" class="bg-pokemonNavyBlue m-5 p-2 flex flex-col items-center">
   <form (ngSubmit)="createNewTrainer()" #form="ngForm" class="text-pokemonYellow w-full grid grid-cols-1 sm:grid-cols-2 items-center justify-center p-2">
 
-    <div class="px-2 py-2 flex flex-col w-full">
-      <label for="trainerName" class="my-3 ">Trainer Name</label>
-      <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
-    </div>
+  <div class="px-2 py-2 flex flex-col w-full">
+    <label for="trainerName" class="my-3 ">Trainer Name</label>
+    <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
+  </div>
 
-    <div class=" px-2 py-2 flex flex-col w-full ">
-      <label for="trainerAge" class="my-3">Trainer Birthday</label>
-      <input type="text" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
-    </div>
+  <div class=" px-2 py-2 flex flex-col w-full ">
+    <label for="trainerAge" class="my-3">Trainer Birthday</label>
+    <input type="text" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
+  </div>
 
-    <div class="px-2 py-2 flex flex-col w-full ">
-      <label for="trainerHobby" class="my-3">Trainer Hobby</label>
-      <input type="text" [placeholder]="getPlaceHolder2()" [(ngModel)]="inputTrainerHobby" name="inputTrainerHobby">
-    </div>
+  <div class="px-2 py-2 flex flex-col w-full ">
+    <label for="trainerHobby" class="my-3">Trainer Hobby</label>
+    <input type="text" [placeholder]="getPlaceHolder2()" [(ngModel)]="inputTrainerHobby" name="inputTrainerHobby">
+  </div>
 
-    <div class="px-2 py-2 flex flex-col rounded-b w-full ">
-      <label for="pictureUrl" class="my-3">Upload your profile picture</label>
-      <input type='file' (change)="readUrl($event)" [(ngModel)]="pictureUrl" name="pictureUrl"/>
-      <img [src]="data:image/jpeg;base64, {{pictureUrl}}" alt="" width="100" height="100"> 
-     
-    </div>
-
+  <div class="px-2 py-2 flex flex-col rounded-b w-full ">
+    <label for="pictureUrl" class="my-3">Upload your profile picture</label>
+    <input type='file' (change)="readUrl($event)" [(ngModel)]="pictureUrl" name="pictureUrl"/>
+    <img [src]="getImageSource(trainer.pictureUrl)" alt="" width="100" height="100"> 
+  </div>
 
   </form>
     <button type="submit" [disabled]="form.invalid" class="btn border-gray-400 rounded">Create Trainer</button>
-
   </div>
 
   <h2 class="mt-5">Trainers: </h2>
