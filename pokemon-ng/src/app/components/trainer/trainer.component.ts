@@ -62,6 +62,7 @@ export class TrainerComponent implements OnInit {
     // Vuelves a llamar a la BBDD para actualizar la lista de trainers
     this.findTrainers()
     this.showAddTrainer = false;
+    alert("Trainer added!");
   }
 
   findTrainers(): void {
