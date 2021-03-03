@@ -12,11 +12,11 @@ module.exports = {
     colors: {
       pokemonBlue: '#3d7dca',
       pokemonNavyBlue: '#003a70',
-      pokemonYellow: '#ffcb05' +
-        '',
+      pokemonYellow: '#ffcb05',
       pokemonGold:  '#b3a125',
       pokemonRed: '#ff0000',
-      pokemonDarkRed: '#cc0000'
+      pokemonDarkRed: '#cc0000',
+      white: '#fcfcfc',
     },
     extend: {},
   },
