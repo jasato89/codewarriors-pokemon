@@ -6,17 +6,18 @@
 <br>
 
 <form (ngSubmit)="createNewTrainer()" #form="ngForm" class="grid grid-cols-1 mx-5 mt-5">
-  <label for="trainerName" class="mt-3">Trainer Name</label>
-  <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
+<label for="trainerName" class="mt-3">Trainer Name</label>
+ <input type="text" required [placeholder]="getPlaceHolder()" [(ngModel)]="inputTrainerName" name="inputTrainerName">
 
   <label for="trainerAge" class="mt-3">Trainer Birthday</label>
-  <input type="date" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
+  <input type="text" required ngModel [(ngModel)]="inputTrainerDOB" name="inputTrainerDOB">
 
   <label for="traierHobby" class="mt-3">Trainer Hobby</label>
   <input type="text" [placeholder]="getPlaceHolder2()" [(ngModel)]="inputTrainerHobby" name="inputTrainerHobby">
 
   <label for="pictureUrl" class="mt-3">Upload your profile picture</label>
-  <input type='file' (change)="readUrl($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl">
+  <input type='file' (change)="readUrl($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
+  <input type='file' (change)="openFiles($event)" [(ngModel)]="inputPictureUrl" name="inputPictureUrl"/>
 
   <button type="submit" [disabled]="form.invalid" class="btn border-gray-400 rounded">Create Trainer</button>
 </form>

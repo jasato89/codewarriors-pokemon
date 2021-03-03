@@ -47,24 +47,40 @@ export class TrainerComponent implements OnInit {
     }
   }
 
-  createNewTrainer(): void {
-    console.log(this.inputTrainerName);
-    console.log(this.inputPictureUrl);
-    const trainer: Trainer = new Trainer(
+  openFiles(event:any){
+
+    var files = event.target.files;
+    for (var i = 0, len = files.length; i < len; i++) {
+      
+        var file = files[i];
+
+        var reader = new FileReader();
+
+        reader.onload = (function(f) {
+            return event.target.result;
+        })(file);
+
+        reader.readAsText(file);
+    }
+}
+
+
+
+createNewTrainer(): void {
+  
+      const trainer: Trainer = new Trainer(
       this.inputTrainerName,
       this.inputTrainerDOB,
       this.inputTrainerHobby,
       this.inputPictureUrl);
-    console.log(trainer);
-    this.trainerService.createTrainer(trainer);
+      this.trainerService.createTrainer(trainer);
     //Vuelves a llamar a la BBDD para actualizar la lista de trainers
-    this.findTrainers();
-  }
+      this.findTrainers();
+  }  
 
   findTrainers(): void {
     this.trainerList = [];
     this.trainerService.getAllTrainers().subscribe(dataResult => {
-
       for (let i = 0; i < dataResult.length; i++) {
         this.trainerList.push(new Trainer(
           dataResult[i].name,

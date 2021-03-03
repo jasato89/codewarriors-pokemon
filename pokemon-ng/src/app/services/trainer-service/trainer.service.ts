@@ -26,10 +26,27 @@ export class TrainerService {
     });
   }
 
-  createTrainer(trainer: Trainer):void{
-    console.log(trainer);
-    this.http.post(this.baseUrl+"/trainer", trainer).subscribe(data=>{
-      console.log(data);
-    });
+    createTrainer(trainer: Trainer):void{
+    this.http.post(this.baseUrl+"/trainer", this.body(trainer)).subscribe(data=>
+    console.log('Post new Trainer'));
+   }
+
+   body(trainer: Trainer): any {
+    let trainerBody: any = {
+      name: trainer.name,
+      age: trainer.birthDate,
+      hobby: trainer.hobby,
+      photo: trainer.pictureUrl
+    }
+    return trainerBody;
   }
+
 }
+
+  
+
+    
+
+
+    
+  
