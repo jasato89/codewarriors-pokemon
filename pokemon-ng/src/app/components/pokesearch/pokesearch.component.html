@@ -1,15 +1,5 @@
 <div class="flex flex-wrap justify-center">
   <div class="w-full md:w-5/12 p-2">
-    <p class="text-pokemonYellow">Trainer:</p>
-    <select name="trainer" [(ngModel)]="trainerSelected" required class="w-full md:w-8/12 p-2">
-      <option value="-1" disabled selected>Select a trainer</option>
-      <option value={{trainer.id}} *ngFor="let trainer of trainersList, let i = index">{{trainer.name}}</option>
-    </select>
-  </div>
-
-
-  <div class="w-full md:w-5/12 p-2">
-    <p class="text-pokemonYellow">Pokemon:</p>
     <ng-autocomplete
       [data]="pokemonData"
       [searchKeyword]="pokemonKeyword"
@@ -29,7 +19,7 @@
     </ng-template>
   </div>
 
-  <div class="w-8/12 sm:w-4/12 flex justify-center align-middle p-2 m-2 bg-pokemonYellow rounded">
-    <button class="bg-pokemonYellow rounded w-full" (click)="onSubmit()">Add pokemon</button>
+  <div class="w-3/12 sm:w-2/12 flex justify-center align-middle p-2 m-2 bg-pokemonYellow rounded">
+    <button class="bg-pokemonYellow rounded w-full" (click)="onSubmit()">Search Pokemon</button>
   </div>
 </div>
