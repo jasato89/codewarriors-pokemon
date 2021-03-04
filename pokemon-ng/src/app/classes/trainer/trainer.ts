@@ -1,4 +1,5 @@
-import { Byte } from "@angular/compiler/src/util";
+import {Byte} from "@angular/compiler/src/util";
+import {PokemonDTO} from "../pokemon-dto/pokemon-dto";
 
 export class Trainer {
   constructor(
@@ -7,11 +8,22 @@ export class Trainer {
     private _hobby: string,
     private _pictureUrl: string,
     private _id?: number,
-  ) { }
+    private _pokemons: PokemonDTO[] = []
+  ) {}
+
+
+  get pokemons(): PokemonDTO[] {
+    return this._pokemons;
+  }
+
+  set pokemons(value: PokemonDTO[]) {
+    this._pokemons = value;
+  }
 
   public get pictureUrl(): string {
     return this._pictureUrl;
   }
+
   public set pictureUrl(value: string) {
     this._pictureUrl = value;
   }
@@ -23,9 +35,11 @@ export class Trainer {
   get name(): string {
     return this._name;
   }
+
   get birthDate(): Date {
     return this._birthDate;
   }
+
   get hobby(): string {
     return this._hobby;
   }
@@ -37,13 +51,18 @@ export class Trainer {
   set name(name: string) {
     this._name = name;
   }
+
   set birthDate(birthDate: Date) {
     this._birthDate = birthDate;
   }
+
   set hobby(hobby: string) {
     this._hobby = hobby;
   }
 
+  addPokemon(pokemon : PokemonDTO) {
+    this._pokemons.push(pokemon);
+  }
 
 }
 

@@ -18,6 +18,20 @@ export class TeamService {
     return this.httpClient.get<Team[]>(`${this.baseUrl}/teams`);
   }
 
+  getFullTeamExperiment(): Observable<[{
+    id: number,
+    trainer: {
+      id: number
+    }
+  }]> {
+    return this.httpClient.get<[{
+      id: number,
+      trainer: {
+        id: number
+      }
+    }]>(`${this.baseUrl}/teams`);
+  }
+
   async addTeamItem(trainerId: number, pokemon: string): Promise<void> {
     await this.httpClient.post<string>(`${this.baseUrl}/team/${trainerId}`, pokemon).toPromise();
   }
