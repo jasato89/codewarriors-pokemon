@@ -1,5 +1,5 @@
 <div>
-    <img [src]="item.trainer.pictureUrl">
+    <img [src]="item.trainer.pictureUrl" class="w-1/12">
     <p>Trainer name: {{item.trainer.name}}</p>
     <p>Trainer date of birth: {{item.trainer.birthDate}}</p>
     <p>Hobby: {{item.trainer.hobby}}</p>
@@ -12,7 +12,7 @@
     <p>held items: {{item.pokemon.heldItemsQty}}</p>
     <p>Basic stats: {{getBasicStats(item.pokemon.stats)}}</p>
     <br>
-    <button (click)="removeItem(item.id)" class="btn bg-black red">Remove</button>
+    <button (click)="removeItem(item.id)" class="bg-pokemonYellow rounded w-2/12">Remove</button>
     <br><br><br>
 
 </div>
