@@ -53,6 +53,7 @@ export class PoketeamComponent implements OnInit {
 
   selectEvent(item: Event) {
     this.pokemonId = Object.values(item)[0];
+    console.log(this.pokemonId);
   }
 
   onChangeSearch(val: string) {
