@@ -34,7 +34,7 @@ export class PoketeamComponent implements OnInit {
   trainersList: Trainer[] = [];
   trainerSelected: number = -1;
 
-  @Input() team!: Team[];
+  // @Input() team!: Team[];
 
   getPokemonList(): void {
     this.pokemonData = [];
@@ -65,22 +65,36 @@ export class PoketeamComponent implements OnInit {
     // do something when input is focused
   }
 
-  async onSubmit(): Promise<void> {
-    if (this.team.length > 6) {
-      window.alert("Teams can only have 7 Pokemons and trainers");
-    } else if (this.pokemonId === -1 || this.trainerSelected === -1) {
 
+  async onSubmit(): Promise<void> {
+    let trainer = this.trainersList.find(tr => tr.id == this.trainerSelected) as Trainer;
+
+    if (this.pokemonId === -1 || this.trainerSelected === -1) {
+    } else if (trainer.pokemonList.length > 6) {
+      window.alert("Team cannot have more than 7 Pokemons!");
     } else {
       let pokemon = await this.pokemonService.getFullPokemon(this.pokemonId + 1);
-      await this.addPokemonToTeam(this.trainerSelected, JSON.stringify(pokemon));
+      // if (this.trainerHasPokemon(trainer, pokemon)) {
+      //   window.alert(`The trainer already has that Pokemon!`);
+      // } else {
+      await this.addPokemonToTrainer(trainer, JSON.stringify(pokemon));
       window.alert("Added to the team!");
       location.reload();
+
     }
   }
 
-  async addPokemonToTeam(trainerId: number, pokemon: string) {
-    let response = await this.teamService.addTeamItem(trainerId, pokemon);
+  // trainerHasPokemon(trainer:Trainer, pokemon: Object): boolean{
+  //   let pokemonId = Object.values(pokemon)[6];
+  //   trainer.pokemonList.forEach(pok=> {
+  //     console.log(Object.values(pok)[2]);
+  //   })
 
+  //   return true;
+  // }
+
+  async addPokemonToTrainer(trainer: Trainer, pokemon: string) {
+    let response = await this.trainerService.addPokemonToTrainer(trainer.id, pokemon);
   }
 
 }

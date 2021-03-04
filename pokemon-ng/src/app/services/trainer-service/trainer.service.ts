@@ -40,6 +40,10 @@ export class TrainerService {
     return trainerBody;
   }
 
+  async addPokemonToTrainer(trainerId:number, pokemon:string): Promise<void>{
+    await this.http.put<Trainer>(this.baseUrl + "/trainer/" + trainerId + "/add-pokemon", pokemon).toPromise();
+  }
+
 }
 
 

@@ -55,7 +55,8 @@ export class TrainerComponent implements OnInit {
       this.inputTrainerName,
       this.inputTrainerDOB,
       this.inputTrainerHobby,
-      this.pictureUrl);
+      this.pictureUrl,
+      []);
     console.log(this.pictureUrl);
     let response = await this.trainerService.createTrainer(trainer);
     console.log(response);
@@ -74,6 +75,7 @@ export class TrainerComponent implements OnInit {
           dataResult[i].birthDate,
           dataResult[i].hobby,
           dataResult[i].pictureUrl,
+          dataResult[i].pokemonList,
           dataResult[i].id,
         ))
       }
