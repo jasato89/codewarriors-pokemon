@@ -1,0 +1,118 @@
+.root {
+  --pokemon-blue: #3b4cca;
+  --pokemon-yellow: #ffde00;
+  --pokemon-gold: #b3a125;
+  --pokemon-red: #ff0000;
+  --pokemon-dark-red: #cc0000;
+}
+
+@font-face {
+  font-family: "PocketMonk";
+  src: local("PocketMonk-15ze.ttf"), url(../../../../assets/fonts/PocketMonk-15ze.ttf) format("truetype");
+}
+
+.team-card {
+  overflow: hidden;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  max-width: 90%;
+  max-height: 100%;
+  border: 2px solid var(--pokemon-gold);
+  border-radius: 5%;
+  padding: 10px 10px;
+  margin: 10px 0;
+  text-align: center;
+  background-color: var(--pokemon-blue);
+  opacity: .8;
+  cursor: pointer;
+  color: darkgray;
+  transition: 0.5s;
+}
+
+.team-card:hover {
+  color: white;
+  opacity: 1;
+}
+
+
+
+.trainer {
+  align-self: center;
+  padding-bottom: 1em;
+  border-bottom: 1px solid gray;
+}
+
+.trainer img {
+  display: inline;
+  height: 8em;
+  width: 8em;
+}
+
+.trainer #trainer-info {
+  align-self: center;
+}
+
+.trainer #trainer-info h2 {
+  text-transform: uppercase;
+  margin: 0.2em auto 0.8em auto;
+  font-weight: 600;
+}
+
+.trainer #trainer-info p {
+  font-weight: 200;
+  text-align: start;
+  padding: 0.1em 0.4em;
+  overflow: hidden;
+}
+
+
+
+.pokemon {
+  align-self: center;
+  /* margin-top: 0.5em; */
+}
+
+.pokemon #pokemon-info {
+  align-self: center;
+}
+
+.pokemon #pokemon-info h2 {
+  text-transform: uppercase;
+  margin: 0.8em auto 0.4em auto;
+  font-weight: 600;
+}
+
+.pokemon #pokemon-info p {
+  font-weight: 200;
+  text-align: start;
+  padding: 0.2em 0.4em;
+  overflow: hidden;
+}
+
+.pokemon #pokemon-info span {
+  text-transform: uppercase;
+}
+
+.pokemon img {
+  align-self: center;
+  justify-self: center;
+  width: 8em;
+  height: 8em;
+}
+
+.pokemon button {
+  align-self: flex-end;
+  justify-self: center;
+  width: 80%;
+  margin-bottom: 0.5em;
+  padding: 0.3em 0;
+  background-color: var(--pokemon-dark-red);
+  color: gray;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.pokemon button:hover {
+  color: white;
+  opacity: 1;
+}

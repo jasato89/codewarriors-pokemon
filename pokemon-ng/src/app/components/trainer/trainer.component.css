@@ -1,0 +1,27 @@
+.add-trainer{
+    width: 30%;
+    transition: 0.1s ease-in;
+    font-size: 1em;
+}
+
+.add-trainer:hover{
+    width: 32%;
+    color:white;
+    font-weight: 600;
+}
+
+.create-trainer {
+    width: 30%;
+    transition: 0.1s ease-in;
+    font-size: 1em;
+}
+
+.create-trainer:hover{
+    width: 32%;
+    color:white;
+    font-weight: 600;
+}
+
+input {
+    color: black;
+}

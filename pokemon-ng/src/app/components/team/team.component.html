@@ -1,50 +1,14 @@
-<div class="container center mt-10">
-
-  <!-- <div class="my-20">
-    <form (ngSubmit)="onSubmit()" #form="ngForm">
-      <div class="grid grid-cols-3">
-        <div>
-          <select name="trainer" [(ngModel)]="trainerSelected" required>
-            <option value="-1" disabled selected>Select a trainer</option>
-            <option value={{trainer.id}} *ngFor="let trainer of trainersList, let i = index">{{trainer.name}}</option>
-          </select>
-        </div>
-
-        <div class="w-full md:w-5/12 p-2">
-          <p class="text-pokemonYellow">Pokemon:</p>
-          <ng-autocomplete
-            [data]="pokemonData"
-            [searchKeyword]="pokemonKeyword"
-            (selected)="selectEvent($event)"
-            (inputChanged)="onChangeSearch($event)"
-            (inputFocused)="onFocused($event)"
-            [itemTemplate]="itemTemplate"
-            [notFoundTemplate]="notFoundTemplate">
-          </ng-autocomplete>
-      
-          <ng-template #itemTemplate let-item>
-            <a [innerHTML]="item.name"></a>
-          </ng-template>
-      
-          <ng-template #notFoundTemplate let-notFound>
-            <div [innerHTML]="notFound"></div>
-          </ng-template>
-        </div>
-        <div>
-
-          <input type="text" name="pokemonName" id="pokemonName" [(ngModel)]="pokemonName" placeholder="Type Pokemon name">
-        </div>
-        <div>
-          <input type="submit" value="Add Pokemon" class="btn button-big">
-        </div>
-      </div>
-    </form>
-  </div> -->
-
+<div class="justify-center mt-10">
   <div>
     <app-poketeam [team]="teamList"></app-poketeam>
   </div>
-  <div>
-    <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"></app-team-item>
+  <div class="">
+    <div class="flex flex-col items-center justify-center w-full py-2 ">
+      <h2 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Teams</h2>
+    </div>
+    <div class="row grid grid-cols-3 mx-5 my-5 justify-items-center">
+      <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"
+      class="justify-center" ></app-team-item>
+    </div>
   </div>
 </div>
