@@ -23,9 +23,13 @@ export class PokemonService {
     return this.http.get<Pokeinterface>(url);
   }
 
-  async getPokemonByName(name: string): Promise<Observable<any>> {
+ /*  async getPokemonByName(name: string): Promise<Observable<any>> {
     let response = await this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${name}`).toPromise();
     return response;
+  } */
+
+  getPokemonByName(name: string):Observable<Pokeinterface> {
+    return this.http.get<Pokeinterface>('https://pokeapi.co/api/v2/pokemon/' + name);
   }
 
   async getFullPokemon(id: number): Promise<Observable<any>> {
