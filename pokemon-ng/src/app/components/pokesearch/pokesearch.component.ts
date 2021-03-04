@@ -1,4 +1,5 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { PokemonService } from './../../services/pokemon-service/pokemon.service';
+import {Component, Input, NgModule, EventEmitter, OnInit, Output} from '@angular/core';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { Pokemon } from 'src/app/classes/pokemon/pokemon';
 import { Team } from 'src/app/classes/team/team';
@@ -7,7 +8,9 @@ import { TeamService } from 'src/app/services/team-service/team.service';
 import { TrainerService } from 'src/app/services/trainer-service/trainer.service';
 import { AppComponent } from "../../app.component";
 import { PokemonList } from "../../classes/pokemon-list-class/pokemon-list";
-import { PokemonService } from "../../services/pokemon-service/pokemon.service";
+
+
+
 
 @Component({
   selector: 'app-pokesearch',
@@ -34,9 +37,13 @@ export class PokesearchComponent implements OnInit {
   pokemonKeyword = 'name';
   pokemonData: Data[] = [];
   pokemonId: number = -1;
+  searchValue: string = ""
+
+  @Output() updatePokemons = new EventEmitter();
 
   trainersList: Trainer[] = [];
   trainerSelected: number = -1;
+  selectedPokemon!: Pokemon;
 
   @Input() team!: Team[];
 
@@ -49,6 +56,35 @@ export class PokesearchComponent implements OnInit {
     })
   }
 
+
+selectPokemon(){
+  this.pokemonService.getPokemonByName(this.pokemonKeyword).subscribe(dataResult =>{
+    let stats: number[] = []
+    for (let i =0; i< dataResult.stats.length; i++){
+      stats.push(dataResult.stats[i].base_stat);
+    }
+    let types: string[] = []
+    for (let i =0; i< dataResult.types.length; i++){
+      types.push(dataResult.types[i].type.name);
+    }
+    let sprites: string[] = [dataResult.sprites.front_default]
+      let newPoke:Pokemon = new Pokemon(
+      dataResult.id,
+      dataResult.name,
+      stats,
+      types,
+      sprites,
+    )
+    newPoke.type[0]=dataResult.types[0].type.name;
+    if(dataResult.types.length>1){
+      newPoke.type[1]=dataResult.types[1].type.name;
+    }
+  this.selectedPokemon=newPoke;
+
+  });
+
+}
+
   getTrainers(): void {
     this.trainerService.getAllTrainers().subscribe(data => {
       data.forEach(tr => this.trainersList.push(tr));
@@ -60,8 +96,8 @@ export class PokesearchComponent implements OnInit {
   }
 
   onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
+    this.updatePokemons.emit(val);
+
   }
 
   onFocused(e: any | Event): void {
