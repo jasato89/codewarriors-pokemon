@@ -71,7 +71,7 @@ export class PoketeamComponent implements OnInit {
     } else if (this.pokemonId === -1 || this.trainerSelected === -1) {
 
     } else {
-      let pokemon = await this.pokemonService.getFullPokemon(this.pokemonId);
+      let pokemon = await this.pokemonService.getFullPokemon(this.pokemonId + 1);
       await this.addPokemonToTeam(this.trainerSelected, JSON.stringify(pokemon));
       window.alert("Added to the team!");
       location.reload();
