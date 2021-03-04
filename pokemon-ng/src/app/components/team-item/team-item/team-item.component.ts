@@ -20,6 +20,19 @@ export class TeamItemComponent implements OnInit {
 
   }
 
+  getAge(dob: Date): number {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() -birthDate.getMonth();
+
+    if(months < 0 || (months === 0 && today.getDate() < birthDate.getDate())){
+      age--;
+    }
+    
+    return age;
+  }
+
   getBasicStats(statsString: string): string {
     let stats: [] = JSON.parse(statsString);
     let result = '';

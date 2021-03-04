@@ -4,9 +4,10 @@
          class="self-center inline-block h-6 w-6 rounded-full w-24 h-24 object-cover">
     <h2 class="text-pokemonNavyBlue text-xl self-center m-2">{{trainer.name}}</h2>
     <div class="bg-pokemonYellow text-pokemonNavyBlue p-2 m-2">
-      <p>Age: {{trainer.birthDate}}</p>
+      <p>Age: {{getAge(trainer.birthDate)}}</p>
       <p>Hobby: {{trainer.hobby}}</p>
     </div>
-    <button class="bg-pokemonRed hover:bg-pokemonDarkRed text-pokemonYellow rounded p-2 m-2" (click)="delete(trainerId)">Delete Trainer</button>
+    <button class="bg-pokemonRed hover:bg-pokemonDarkRed text-pokemonYellow rounded p-2 m-2 transition duration-300 ease-in-out"
+     (click)="delete(trainerId)">Delete Trainer</button>
   </div>
 </div>
