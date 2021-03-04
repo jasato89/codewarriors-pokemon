@@ -1,5 +1,5 @@
 import { PokemonService } from './../../services/pokemon-service/pokemon.service';
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import {Component, Input, NgModule, EventEmitter, OnInit, Output} from '@angular/core';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { Pokemon } from 'src/app/classes/pokemon/pokemon';
 import { Team } from 'src/app/classes/team/team';
@@ -39,6 +39,7 @@ export class PokesearchComponent implements OnInit {
   pokemonId: number = -1;
   searchValue: string = ""
 
+  @Output() updatePokemons = new EventEmitter();
 
   trainersList: Trainer[] = [];
   trainerSelected: number = -1;
@@ -54,7 +55,7 @@ export class PokesearchComponent implements OnInit {
       }));
     })
   }
-  
+
 
 selectPokemon(){
   this.pokemonService.getPokemonByName(this.pokemonKeyword).subscribe(dataResult =>{
@@ -81,9 +82,9 @@ selectPokemon(){
   this.selectedPokemon=newPoke;
 
   });
-  
-} 
-  
+
+}
+
   getTrainers(): void {
     this.trainerService.getAllTrainers().subscribe(data => {
       data.forEach(tr => this.trainersList.push(tr));
@@ -95,8 +96,8 @@ selectPokemon(){
   }
 
   onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
+    this.updatePokemons.emit(val);
+
   }
 
   onFocused(e: any | Event): void {
