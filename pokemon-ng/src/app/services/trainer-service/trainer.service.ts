@@ -19,6 +19,11 @@ export class TrainerService {
     return this.http.get<Trainer[]>(url);
   }
 
+  async getTrainerById(id: number): Promise<Observable<Trainer>> {
+    const url = this.baseUrl + "/trainer/" + id;
+    return await this.http.get<Observable<Trainer>>(url).toPromise();
+  }
+
   deleteTrainer(trainerId: number): void {
     this.http.delete(this.baseUrl + "/trainer/" + trainerId).subscribe(data => {
       console.log(data);
@@ -40,12 +45,12 @@ export class TrainerService {
     return trainerBody;
   }
 
-  async addPokemonToTrainer(trainerId:number, pokemon:string): Promise<void>{
+  async addPokemonToTrainer(trainerId: number, pokemon: string): Promise<void> {
     await this.http.put<any>(this.baseUrl + "/trainer/" + trainerId + "/add-pokemon", pokemon).toPromise();
   }
 
-  async removePokemonFromTrainer(trainerId:number, pokemonId:number): Promise<void>{
-    await this.http.put<any>(this.baseUrl+ "/trainer/" + trainerId + "/remove-pokemon/" + pokemonId, "").toPromise();
+  async removePokemonFromTrainer(trainerId: number, pokemonId: number): Promise<void> {
+    await this.http.put<any>(this.baseUrl + "/trainer/" + trainerId + "/remove-pokemon/" + pokemonId, "").toPromise();
   }
 
 }

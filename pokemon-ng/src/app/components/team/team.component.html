@@ -1,14 +1,14 @@
 <div class="justify-center mt-10">
   <div>
-    <app-poketeam></app-poketeam>
+    <app-poketeam [trainersList]="trainersList"></app-poketeam>
   </div>
   <div class="">
     <div class="flex flex-col items-center justify-center w-full py-2 ">
       <h2 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Teams</h2>
     </div>
     <div class="row grid grid-cols-3 mx-5 my-5 justify-items-center">
-      <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"
-      class="justify-center" ></app-team-item>
+      <app-team-item *ngFor="let item of trainersList, let j = index" [item]="item" [index]="j"
+      class="justify-center" [trainers]="trainersList"></app-team-item>
     </div>
   </div>
 </div>

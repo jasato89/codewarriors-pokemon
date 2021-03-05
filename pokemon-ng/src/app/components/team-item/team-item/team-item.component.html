@@ -1,28 +1,30 @@
-<div class="team-card">
-  <div class="grid grid-cols-2 gap-3 trainer">
+<div class="team-card" *ngIf="item.pokemonList.length > 0">
+  <div class="grid grid-cols-2 gap-3 trainer" >
     <div class="">
-      <img [src]="item.trainer.pictureUrl" alt="trainer-pic" class="rounded-full items-center justify-center">
+      <img [src]="item.pictureUrl" alt="trainer-pic" class="rounded-full items-center justify-center">
     </div>
     <div id="trainer-info" class="align-middle items-start">
       <h2>Trainer</h2>
-      <p>Name: {{item.trainer.name}}</p>
-      <p>Age: {{getAge(item.trainer.birthDate)}}</p>
-      <p>Hobby: {{item.trainer.hobby}}</p>
+      <p>Name: {{item.name}}</p>
+      <p>Age: {{getAge(item.birthDate)}}</p>
+      <p>Hobby: {{item.hobby}}</p>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-3 pokemon">
-    <div id="pokemon-info" class="align-middle">
+  <div *ngFor="let pok of item.pokemonList, let h=index">
+    <div class="grid grid-cols-2 gap-3 pokemon"  >{{ getName(pok) }} 
+      <div id="pokemon-info" class="align-middle">
         <h2>Pokemon</h2>
-      <p>Name: <span>{{item.pokemon.name}}</span></p>
-      <p>Weight: {{item.pokemon.weight}}</p>
-      <p>Height: {{item.pokemon.height}}</p>
-      <p>Base experience: {{item.pokemon.baseExperience}}</p>
-      <p>Held items: {{item.pokemon.heldItemsQty}}</p>
-      <p>Basic stats: {{getBasicStats(item.pokemon.stats)}}</p>
-    </div>
-    <div class="grid grid-rows-2 gap-2">
-      <img src={{item.pokemon.pictureFront}} alt="pokemon">
-      <button (click)="removeItem(item.id)" class="bg-pokemonYellow rounded w-2/12">Remove</button>
+        <p>Name: <span>{{pokemon.name}}</span></p>
+        <p>Height: {{pokemon.height}}</p>
+        <p>Weight: {{pokemon.weight}}</p>
+        <p>Base experience: {{pokemon.baseExperience}}</p>
+        <p>Held items: {{pokemon.heldItemsQty}}</p>
+        <p>Basic stats: {{getBasicStats(pokemon.stats)}}</p>
+      </div>
+      <div class="grid grid-rows-2 gap-2">
+        <img src={{pokemon.pictureFront}} alt="pokemon">
+        <button (click)="removePokemonFromTrainer(item.id, pokemon.pokemonId)" class="bg-pokemonYellow rounded w-2/12">Remove</button>
+      </div>
     </div>
   </div>
   <div>

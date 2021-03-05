@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { PokemonDTO } from 'src/app/classes/pokemon-dto/pokemon-dto';
 import { PokemonList } from 'src/app/classes/pokemon-list-class/pokemon-list';
-import { Team } from 'src/app/classes/team/team';
 import { Trainer } from 'src/app/classes/trainer/trainer';
 import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
-import { TeamService } from 'src/app/services/team-service/team.service';
 import { TrainerService } from 'src/app/services/trainer-service/trainer.service';
 
 @Component({
@@ -17,13 +15,10 @@ export class PoketeamComponent implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private trainerService: TrainerService,
-    private teamService: TeamService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getPokemonList();
-    this.getTrainers();
   }
 
   pokemonList: PokemonList = {} as PokemonList;
@@ -32,10 +27,9 @@ export class PoketeamComponent implements OnInit {
   pokemonData: Data[] = [];
   pokemonId: number = -1;
 
-  trainersList: Trainer[] = [];
+  @Input() trainersList: Trainer[] = [];
   trainerSelected: number = -1;
 
-  // @Input() team!: Team[];
 
   getPokemonList(): void {
     this.pokemonData = [];
@@ -43,12 +37,6 @@ export class PoketeamComponent implements OnInit {
       result.results.forEach(((value, index) => {
         this.pokemonData.push(new Data(index, value.name[0].toUpperCase() + value.name.substr(1)));
       }));
-    })
-  }
-
-  getTrainers(): void {
-    this.trainerService.getAllTrainers().subscribe(data => {
-      data.forEach(tr => this.trainersList.push(tr));
     })
   }
 
@@ -65,7 +53,6 @@ export class PoketeamComponent implements OnInit {
   onFocused(e: any | Event): void {
     // do something when input is focused
   }
-
 
   async onSubmit(): Promise<void> {
     let trainer = this.trainersList.find(tr => tr.id == this.trainerSelected) as Trainer;
@@ -106,7 +93,6 @@ export class PoketeamComponent implements OnInit {
     let response = await this.trainerService.addPokemonToTrainer(trainer.id, pokemon);
     console.log(response);
   }
-
 }
 
 export class Data {
