@@ -164,7 +164,7 @@ export class PokedexComponent implements OnInit {
     });
   }
 
-  updateSearch(searchQuery: string) {
+    updateSearch(searchQuery: string) {
     if (searchQuery === '') {
       this.getPokemons(this.currentUrl);
     } else {
