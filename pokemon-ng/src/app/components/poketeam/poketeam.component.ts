@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PokemonDTO } from 'src/app/classes/pokemon-dto/pokemon-dto';
 import { PokemonList } from 'src/app/classes/pokemon-list-class/pokemon-list';
 import { Team } from 'src/app/classes/team/team';
 import { Trainer } from 'src/app/classes/trainer/trainer';
@@ -74,27 +75,36 @@ export class PoketeamComponent implements OnInit {
       window.alert("Team cannot have more than 7 Pokemons!");
     } else {
       let pokemon = await this.pokemonService.getFullPokemon(this.pokemonId + 1);
-      // if (this.trainerHasPokemon(trainer, pokemon)) {
-      //   window.alert(`The trainer already has that Pokemon!`);
-      // } else {
-      await this.addPokemonToTrainer(trainer, JSON.stringify(pokemon));
-      window.alert("Added to the team!");
-      location.reload();
-
+      if (this.trainerHasPokemon(trainer, pokemon)) {
+        window.alert(`The trainer already has that Pokemon!`);
+      } else {
+        await this.addPokemonToTrainer(trainer, JSON.stringify(pokemon));
+        window.alert("Added to the team!");
+        location.reload();
+      }
     }
   }
 
-  // trainerHasPokemon(trainer:Trainer, pokemon: Object): boolean{
-  //   let pokemonId = Object.values(pokemon)[6];
-  //   trainer.pokemonList.forEach(pok=> {
-  //     console.log(Object.values(pok)[2]);
-  //   })
+  trainerHasPokemon(trainer: Trainer, pokemon: Object): boolean {
+    let pokemonId = Object.values(pokemon)[6];
 
-  //   return true;
-  // }
+    if (trainer.pokemonList.length < 1) {
+      return false;
+    } else {
+      let exist = false;
+      trainer.pokemonList.forEach(pok => {
+        let pokemonDTO = pok as PokemonDTO;
+        if (pokemonDTO.pokemonId == pokemonId) {
+          exist = true;
+        }
+      })
+      return exist;
+    }
+  }
 
   async addPokemonToTrainer(trainer: Trainer, pokemon: string) {
     let response = await this.trainerService.addPokemonToTrainer(trainer.id, pokemon);
+    console.log(response);
   }
 
 }
