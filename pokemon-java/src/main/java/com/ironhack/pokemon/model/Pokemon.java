@@ -13,7 +13,7 @@ public class Pokemon {
     private Double height;
     private Double weight;
     private Double baseExperience;
-    //Guardamos el objeto de abilities como un string y luego con GSON lo transformamos a una lista
+    //Guardamos el objeto de abilitines como un string y luego con GSON lo transformamos a una lista
     @Column( length = 100000 )
     private String abilities;
     private String speciesName;
