@@ -15,6 +15,7 @@ export class TeamItemComponent implements OnInit {
   @Input() trainers!: Trainer[];
 
   pokemon!:PokemonDTO;
+  areShown: boolean = false;
 
   constructor(
     private trainerService: TrainerService
@@ -38,7 +39,7 @@ export class TeamItemComponent implements OnInit {
     if(months < 0 || (months === 0 && today.getDate() < birthDate.getDate())){
       age--;
     }
-    
+
     return age;
   }
 
@@ -74,6 +75,10 @@ export class TeamItemComponent implements OnInit {
     });
   }
 
+  showPokemons() {
+    this.areShown = !this.areShown;
+
+  }
 }
 
 
