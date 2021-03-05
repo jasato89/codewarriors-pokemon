@@ -2,12 +2,12 @@
   <div class="trainer">
     <div class="flex flex-col items-center justify-center m-2 p-2">
       <img [src]="item.pictureUrl" alt="trainer-pic" class="rounded-full items-center justify-center">
-      <p>{{item.name}}</p>
+      <p id="trainer-name">{{item.name}}</p>
     </div>
     <div id="trainer-info" class="align-middle items-start m-2 p-2">
       <p>Age: {{getAge(item.birthDate)}}</p>
       <p>Hobby: {{item.hobby}}</p>
-      <button (click)="showPokemons()">Show Pokemons</button>
+      <button (click)="showPokemons()" id="show-pokemons">Show Pokemons</button>
     </div>
   </div>
   <div *ngIf="areShown">
@@ -26,7 +26,7 @@
         <div class="grid grid-rows-2 gap-2">
           <img src={{pokemon.pictureFront}} alt="pokemon">
           <button (click)="removePokemonFromTrainer(item.id, pokemon.pokemonId)"
-                  class="bg-pokemonYellow rounded w-2/12">Remove
+                  class="bg-pokemonYellow rounded w-2/12" >Remove
           </button>
         </div>
       </div>

@@ -40,6 +40,11 @@
   padding-bottom: 1em;
 }
 
+.trainer #trainer-name{
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
 .trainer img {
   display: inline;
   height: 8em;
@@ -47,7 +52,7 @@
 }
 
 .trainer #trainer-info {
-  align-self: center;
+  text-align-last: center;
 }
 
 .trainer #trainer-info h2 {
@@ -57,12 +62,26 @@
 }
 
 .trainer #trainer-info p {
-  font-weight: 200;
+  font-weight: 400;
   text-align: start;
   padding: 0.1em 0.4em;
   overflow: hidden;
 }
 
+#show-pokemons{
+  color:var(--pokemon-blue);
+  background-color: white;
+  border:1px solid wheat;
+  margin: 1em auto;
+  padding: 0.6em 1.5em;
+  border-radius: 0.5em;
+  transition: 0.1s ease-in;
+}
+#show-pokemons:hover{
+  color: white;
+  background-color: var(--pokemon-blue);
+  border: none;
+}
 
 
 .pokemon {
