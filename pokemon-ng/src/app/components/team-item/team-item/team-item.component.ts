@@ -14,7 +14,7 @@ export class TeamItemComponent implements OnInit {
   @Input() index!: number;
   @Input() trainers!: Trainer[];
 
-  pokemon!:PokemonDTO;
+  pokemon!: PokemonDTO;
   areShown: boolean = false;
 
   constructor(
@@ -25,7 +25,7 @@ export class TeamItemComponent implements OnInit {
 
   }
 
-  getName(pokemon: Object):void{
+  getName(pokemon: Object): void {
     let pokemonDTO = pokemon as PokemonDTO;
     this.pokemon = pokemonDTO;
   }
@@ -34,9 +34,9 @@ export class TeamItemComponent implements OnInit {
     const today = new Date();
     const birthDate = new Date(dob);
     let age = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() -birthDate.getMonth();
+    let months = today.getMonth() - birthDate.getMonth();
 
-    if(months < 0 || (months === 0 && today.getDate() < birthDate.getDate())){
+    if (months < 0 || (months === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
 
@@ -69,10 +69,14 @@ export class TeamItemComponent implements OnInit {
     return result;
   }
 
-    async removePokemonFromTrainer(trainerId: number, pokemonId: number) {
-    let response = await this.trainerService.removePokemonFromTrainer(trainerId, pokemonId).then(() => {
-      location.reload();
+  async removePokemonFromTrainer(trainerId: number, pokemonId: number) {
+    console.log(trainerId);
+    console.log(pokemonId);
+    let response = await this.trainerService.removePokemonFromTrainer(trainerId, pokemonId).then<void>(()=> {
+      console.log("deleted");
     });
+
+    location.reload();
   }
 
   showPokemons() {

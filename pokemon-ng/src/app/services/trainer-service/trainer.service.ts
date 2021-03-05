@@ -50,7 +50,7 @@ export class TrainerService {
   }
 
   async removePokemonFromTrainer(trainerId: number, pokemonId: number): Promise<void> {
-    await this.http.put<any>(this.baseUrl + "/trainer/" + trainerId + "/remove-pokemon/" + pokemonId, "").toPromise();
+    await this.http.put<any>(this.baseUrl + "/trainer/" + trainerId + "/remove-pokemon?pokemon-id=" + pokemonId, "").toPromise();
   }
 
 }

@@ -2,3 +2,13 @@ select{
     border-radius: 5px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
+#add-button{
+    opacity: 0.8;
+    font-weight: 400;
+    transition: 0.15s ease-in-out;
+}
+#add-button:hover{
+    opacity: 1;
+    font-weight: 800;
+}
