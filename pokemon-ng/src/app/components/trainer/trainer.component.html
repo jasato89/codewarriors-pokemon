@@ -47,7 +47,7 @@
     </form>
   </div>
 
-  <div class="text-pokemonYellow grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 p-2 m-5 bg-pokemonNavyBlue rounded">
+  <div *ngIf="trainerList.length>0" class="text-pokemonYellow grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 p-2 m-5 bg-pokemonNavyBlue rounded">
     <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
                       (deleteTrainerEvent)="delete($event)"></app-trainer-card>
   </div>
