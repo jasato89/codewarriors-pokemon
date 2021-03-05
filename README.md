@@ -7,10 +7,11 @@
 This is a project developed in Java and Angular, using a public API to feed our own backend and frontend.
 
 In this video you can get a glance of the application!
-[![Video](Resources/thumbnail.JPG)](Resources/20210305_123014.mp4)
+<br>
+[![Video](Resources/thumbnail.JPG)](https://user-images.githubusercontent.com/60518810/110111558-d10df100-7db0-11eb-9ce2-3121a2c4675d.mp4)
 
 
-https://user-images.githubusercontent.com/60518810/110111558-d10df100-7db0-11eb-9ce2-3121a2c4675d.mp4
+
 
 
 
