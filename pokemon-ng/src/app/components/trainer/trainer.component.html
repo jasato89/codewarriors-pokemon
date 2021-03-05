@@ -1,7 +1,7 @@
 <div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
 
   <div class="flex flex-col items-center justify-center w-full py-2 ">
-    <h2 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Trainers </h2>
+    <h1 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Trainers </h1>
   </div>
 
   <div class="flex justify-center align-middle">
@@ -47,7 +47,7 @@
     </form>
   </div>
 
-  <div class="text-pokemonYellow grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 p-2 m-5 bg-pokemonNavyBlue rounded">
+  <div *ngIf="trainerList.length>0" class="text-pokemonYellow grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 p-2 m-5 bg-pokemonNavyBlue rounded">
     <app-trainer-card *ngFor="let trainer of trainerList; let i = index" [trainer]="trainer" [trainerId]="trainer.id"
                       (deleteTrainerEvent)="delete($event)"></app-trainer-card>
   </div>

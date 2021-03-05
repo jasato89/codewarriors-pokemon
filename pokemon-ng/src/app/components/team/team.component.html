@@ -1,14 +1,14 @@
 <div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
 <div>
-    <app-poketeam [team]="teamList"></app-poketeam>
+    <app-poketeam [trainersList]="trainersList"></app-poketeam>
   </div>
-  <div>
-    <div class="flex flex-col items-center justify-center w-full py-2 ">
-      <h2 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Teams</h2>
+  <div class="">
+    <div class="flex flex-col items-center justify-center w-full py-2">
+      <h1 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Teams</h1>
     </div>
-    <div class="row grid grid-cols-3 mx-5 my-5 justify-items-center">
-      <app-team-item *ngFor="let item of teamList, let j = index" [item]="item" [index]="j"
-      class="justify-center" ></app-team-item>
+    <div class="grid grid-cols-1 xl:grid-cols-2 mx-5 my-5 items-start justify-items-center">
+      <app-team-item *ngFor="let item of trainersList, let j = index" [item]="item" [index]="j"
+      class="flex flex-col items-center justify-center items-center w-full p-2 justify-center" [trainers]="trainersList"></app-team-item>
     </div>
   </div>
 </div>

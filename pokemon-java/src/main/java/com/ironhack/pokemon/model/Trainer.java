@@ -11,6 +11,7 @@ public class Trainer {
     private Long id;
     private String name;
     private LocalDate birthDate;
+    @Column(columnDefinition="TEXT")
     private String pictureUrl;
     private String hobby;
 

@@ -7,6 +7,7 @@ export class Trainer {
     private _birthDate: Date,
     private _hobby: string,
     private _pictureUrl: string,
+    private _pokemonList: [],
     private _id?: number,
     private _pokemons: PokemonDTO[] = []
   ) {}
@@ -18,6 +19,13 @@ export class Trainer {
 
   set pokemons(value: PokemonDTO[]) {
     this._pokemons = value;
+  }
+
+  public get pokemonList(): [] {
+    return this._pokemonList;
+  }
+  public set pokemonList(value: []) {
+    this._pokemonList = value;
   }
 
   public get pictureUrl(): string {

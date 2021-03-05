@@ -1,6 +1,6 @@
-<div class="bgImg flex flex-row flex-wrap items-center justify-center mx-2">
+<div class="flex flex-wrap justify-center my-2">
     <div class="w-full md:w-5/12 text-center">
-      <select name="trainer" [(ngModel)]="trainerSelected" required class="align-top w-full md:w-8/12 p-2">
+      <select name="trainer" [(ngModel)]="trainerSelected" required class="w-full md:w-8/12 p-2">
         <option value="-1" disabled selected>Select a trainer</option>
         <option value={{trainer.id}} *ngFor="let trainer of trainersList, let i = index">{{trainer.name}}</option>
       </select>
@@ -26,7 +26,8 @@
         <div [innerHTML]="notFound"></div>
       </ng-template>
     </div>
-  <div class="w-8/12 sm:w-4/12 flex justify-center align-middle p-2 m-2 bg-pokemonYellow rounded">
-    <button class="bg-pokemonYellow rounded w-full text-white font-bold" (click)="onSubmit()">Add Team!</button>
-  </div>
+
+    <div class="w-8/12 sm:w-4/12 flex justify-center align-middle p-2 m-2 bg-pokemonYellow rounded">
+      <button class="bg-pokemonYellow rounded w-full text-white font-bold" (click)="onSubmit()">Add Team!</button>
+    </div>
   </div>

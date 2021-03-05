@@ -1,7 +1,6 @@
 import { TrainerService } from '../../services/trainer-service/trainer.service';
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/classes/trainer/trainer';
-import { Byte } from '@angular/compiler/src/util';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -55,7 +54,8 @@ export class TrainerComponent implements OnInit {
       this.inputTrainerName,
       this.inputTrainerDOB,
       this.inputTrainerHobby,
-      this.pictureUrl);
+      this.pictureUrl,
+      []);
     console.log(this.pictureUrl);
     let response = await this.trainerService.createTrainer(trainer);
     console.log(response);
@@ -74,27 +74,30 @@ export class TrainerComponent implements OnInit {
           dataResult[i].birthDate,
           dataResult[i].hobby,
           dataResult[i].pictureUrl,
+          dataResult[i].pokemonList,
           dataResult[i].id,
         ))
       }
     });
   }
 
+  //Debería ser un método asíncrono, por eso a veces al borrar lo sigue mostrando y hay que refrescar
   delete(trainerId: number): void {
-    // this.trainerList.splice(trainerId - 1, 1);
-    this.trainerService.deleteTrainer(trainerId);
-    this.findTrainers();
+    //Check if the trainer has pokemons first
+    let hasPokemons = this.trainerList.find(tr => tr.id == trainerId)?.pokemonList.length;
+    console.log(hasPokemons);
+    if(hasPokemons === undefined || hasPokemons < 1){
+      this.trainerService.deleteTrainer(trainerId);
+      this.findTrainers();
+      location.reload();
+    }else{
+      window.alert("The trainer has a Team. Delete it first!");
+    }
   }
-
 
   addTrainer(): void {
     this.showAddTrainer = !this.showAddTrainer;
-
   }
 
-  // getImageSource(): SafeUrl{
-  //   let picUrl = this.pictureUrl.toString();
-  //   return this.sanitizer.bypassSecurityTrustUrl(picUrl);
-  // }
 }
 

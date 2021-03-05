@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Team } from 'src/app/classes/team/team';
-import { TeamService } from 'src/app/services/team-service/team.service';
+import { PokemonDTO } from 'src/app/classes/pokemon-dto/pokemon-dto';
+import { Trainer } from 'src/app/classes/trainer/trainer';
+import { TrainerService } from 'src/app/services/trainer-service/trainer.service';
 
 @Component({
   selector: 'app-team-item',
@@ -9,15 +10,24 @@ import { TeamService } from 'src/app/services/team-service/team.service';
 })
 export class TeamItemComponent implements OnInit {
 
-  @Input() item!: Team;
+  @Input() item!: Trainer;
   @Input() index!: number;
+  @Input() trainers!: Trainer[];
+
+  pokemon!:PokemonDTO;
+  areShown: boolean = false;
 
   constructor(
-    private teamService: TeamService
+    private trainerService: TrainerService
   ) { }
 
   ngOnInit(): void {
 
+  }
+
+  getName(pokemon: Object):void{
+    let pokemonDTO = pokemon as PokemonDTO;
+    this.pokemon = pokemonDTO;
   }
 
   getAge(dob: Date): number {
@@ -29,7 +39,7 @@ export class TeamItemComponent implements OnInit {
     if(months < 0 || (months === 0 && today.getDate() < birthDate.getDate())){
       age--;
     }
-    
+
     return age;
   }
 
@@ -59,12 +69,16 @@ export class TeamItemComponent implements OnInit {
     return result;
   }
 
-  async removeItem(index: number) {
-    let response = await this.teamService.removeTeamItem(index).then(() => {
+    async removePokemonFromTrainer(trainerId: number, pokemonId: number) {
+    let response = await this.trainerService.removePokemonFromTrainer(trainerId, pokemonId).then(() => {
       location.reload();
     });
   }
 
+  showPokemons() {
+    this.areShown = !this.areShown;
+
+  }
 }
 
 

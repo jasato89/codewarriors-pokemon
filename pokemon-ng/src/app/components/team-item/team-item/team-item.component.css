@@ -20,7 +20,6 @@
   border: 2px solid var(--pokemon-gold);
   border-radius: 5%;
   padding: 10px 10px;
-  margin: 10px 0;
   text-align: center;
   background-color: var(--pokemon-blue);
   opacity: .8;
@@ -39,7 +38,6 @@
 .trainer {
   align-self: center;
   padding-bottom: 1em;
-  border-bottom: 1px solid gray;
 }
 
 .trainer img {

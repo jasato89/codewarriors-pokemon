@@ -1,5 +1,9 @@
 <div class="bgImg mx-5 mb-5 border-b-4 border-l-4 border-r-4 rounded-b border-pokemonNavyBlue">
-  <app-pokesearch class="m-2"></app-pokesearch>
+  <div class="flex flex-col items-center justify-center w-full py-2 ">
+    <h1 class="w-6/12 bg-pokemonNavyBlue mt-5 pokeFont text-center rounded">Pokedex</h1>
+  </div>
+
+  <app-pokesearch (updatePokemons)="updateSearch($event)" class="m-2"></app-pokesearch>
   <div class="grid sm:grid-cols-4 xl:grid-cols-6 grid-cols-2">
     <div [ngClass]="{'row-span-2': isActive[i]}" [@fadeInLeftBigOnEnter] class="m-2 h-full" *ngFor="let pokemon of pokemons; index as i">
       <button class="flex flex-col justify-center items-center text-pokemonYellow w-full bg-pokemonNavyBlue hover:bg-pokemonYellow hover:text-pokemonRed rounded"
