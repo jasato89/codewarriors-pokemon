@@ -7,7 +7,8 @@
 This is a project developed in Java and Angular, using a public API to feed our own backend and frontend.
 
 In this video you can get a glance of the application!
-<br>
+(*click on the image to open the video*)
+<br><br>
 [![Video](https://user-images.githubusercontent.com/60518810/110238280-16f9bf00-7f41-11eb-9eef-4e6c9ea87d28.gif)](https://www.youtube.com/watch?v=iyJXKuRIe6A)
 
 
@@ -43,6 +44,7 @@ For all this, we've used many libraries, like animations, forms, pagination and 
 1. Angular & Typescript
 1. Tailwind
 
+<br>
 ---
 
 ### Who are we?
