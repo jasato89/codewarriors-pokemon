@@ -8,9 +8,7 @@ This is a project developed in Java and Angular, using a public API to feed our 
 
 In this video you can get a glance of the application!
 <br>
-[![Video](Resources/thumbnail.JPG)](https://www.youtube.com/watch?v=iyJXKuRIe6A)
-
-
+[![Video](https://user-images.githubusercontent.com/60518810/110238280-16f9bf00-7f41-11eb-9eef-4e6c9ea87d28.gif)](https://www.youtube.com/watch?v=iyJXKuRIe6A)
 
 
 
